@@ -1,0 +1,19 @@
+{
+ "issues": 95,
+ "epics": 16,
+ "subs": 12,
+ "hours": 1240,
+ "s1_issues": 28,
+ "s1_hours": 337,
+ "s1_done_hours_est": 261,
+ "s1_done_hours_act": 283,
+ "s1_actual_total": 335,
+ "s1_status": {
+  "Done": 23,
+  "In Progress": 3,
+  "Todo": 1,
+  "Blocked": 1
+ },
+ "s1_swp_total": null,
+ "s1_swp_done": null
+}

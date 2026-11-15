@@ -1,0 +1,124 @@
+﻿#,ID,Loại,Epic,Tiêu đề,Iteration,Người phụ trách (giả định),Giờ ước lượng,Giờ thực tế,SWP,Trạng thái,Spec LAB-4,Phụ thuộc
+1,EP01,epic,EP01 Nền tảng & hạ tầng production,[EP01] Nền tảng & hạ tầng production,,,132,,,Todo,,
+2,EP02,epic,EP02 Xác thực & phân quyền,[EP02] Xác thực & phân quyền,,,68,,,Todo,,
+3,EP03,epic,EP03 Người tham gia & tư cách 許可/承認,[EP03] Người tham gia & tư cách 許可/承認,,,69,,,Todo,,
+4,EP04,epic,EP04 Lô hàng (ロット),[EP04] Lô hàng (ロット),,,68,,,Todo,,
+5,EP05,epic,EP05 相対取引 (luồng chính),[EP05] 相対取引 (luồng chính),,,106,,,Todo,,
+6,EP06,epic,EP06 せり結果 (chỉ ghi kết quả),[EP06] せり結果 (chỉ ghi kết quả),,,32,,,Todo,,
+7,EP07,epic,EP07 Giao hàng & offline,[EP07] Giao hàng & offline,,,126,,,Todo,,
+8,EP08,epic,EP08 Đối chiếu & khóa ngày,[EP08] Đối chiếu & khóa ngày,,,64,,,Todo,,
+9,EP09,epic,EP09 Sửa sau xác nhận 赤黒,[EP09] Sửa sau xác nhận 赤黒,,,86,,,Todo,,
+10,EP10,epic,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[EP10] 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,,,140,,,Todo,,
+11,EP11,epic,EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm),[EP11] 料率版 (bản tỉ lệ — tối đa 4 lần/năm),,,48,,,Todo,,
+12,EP12,epic,EP12 Báo cáo & 会計連携 IF-ACC-01,[EP12] Báo cáo & 会計連携 IF-ACC-01,,,100,,,Todo,,
+13,EP13,epic,EP13 Thông báo · batch · vận hành,[EP13] Thông báo · batch · vận hành,,,38,,,Todo,,
+14,EP14,epic,EP14 Audit · master · lưu trữ,[EP14] Audit · master · lưu trữ,,,42,,,Todo,,
+15,EP15,epic,EP15 Migration dữ liệu,[EP15] Migration dữ liệu,,,90,,,Todo,,
+16,EP16,epic,EP16 Quản lý & xác nhận với khách,[EP16] Quản lý & xác nhận với khách,,,31,,,Todo,,
+17,T001,issue,EP01 Nền tảng & hạ tầng production,"[T001] Terraform: VPC, ECS Fargate 2 AZ, RDS PostgreSQL Multi-AZ, S3 (dev/stg)",Sprint 1,BE-Hùng,32,28,—,In Progress,"ADR-010, HLD §2",
+18,T002,issue,EP01 Nền tảng & hạ tầng production,"[T002] CI/CD GitHub Actions → ECR → ECS (blue/green, chặn deploy 01:30–10:00 JST)",Sprint 2,BE-Hùng,20,,—,Todo,"ADR-010, HLD §7",T001
+19,T003,issue,EP01 Nền tảng & hạ tầng production,[T003] Thay client Supabase bằng `pg` + công cụ migration schema từ DDL LAB-4,Sprint 1,BE-Linh,20,24,—,Done,"ADR-010, 03_Database-DDL.sql",
+20,T004,issue,EP01 Nền tảng & hạ tầng production,[T004] Backup PITR + snapshot copy sang Osaka + diễn tập restore (RTO 4h/RPO 15'),Sprint 3,BE-Hùng,18,,—,Todo,"NFR-AVL-03, ADR-010",T001
+21,T005,issue,EP01 Nền tảng & hạ tầng production,[T005] CloudWatch alarm + uptime monitor ngoài AWS (02:00–10:00),Sprint 3,BE-Hùng,10,,—,Todo,NFR-OPS-01,T001
+22,T006,issue,EP02 Xác thực & phân quyền,[T006] Cognito login/logout + cookie phiên (AUTH-01/03/04),Sprint 2,BE-Linh,20,,—,Todo,"API §4, ADR-010",T001
+23,T007,issue,EP02 Xác thực & phân quyền,[T007] MFA TOTP bắt buộc cho SYS-ADMIN/APPROVER/RULE-ADMIN/SETTLEMENT (SCR-002),Sprint 2,BE-Linh,12,,—,Todo,NFR-SEC-01,T006
+24,T008,issue,EP02 Xác thực & phân quyền,"[T008] Khóa sau 5 lần sai, timeout 30', PIN đổi ca tablet",Sprint 2,BE-Linh,12,,—,Todo,"NFR-SEC-03, CS-06",T006
+25,T009,issue,EP02 Xác thực & phân quyền,[T009] Bảng roles + ma trận quyền mặc định 8 vai trò; bỏ quyền nghiệp vụ của SYS-ADMIN,Sprint 1,BE-Linh,6,6,—,Done,"DB §3.1, ADR-008",T003
+26,T010,issue,EP02 Xác thực & phân quyền,[T010] SCR-010/011/012 quản trị tài khoản & quyền (ADM-01〜03),Sprint 1,FE-Mai,18,18,—,Done,Screen List,T009
+27,T011,issue,EP03 Người tham gia & tư cách 許可/承認,[T011] Migration party_qualifications: cột status SM-01 thay `suspended` (GAP-03),Sprint 1,BE-Hùng,10,10,—,Done,"DB §6.3 GAP-03, SM-01",T003
+28,T012,issue,EP03 Người tham gia & tư cách 許可/承認,[T012] fn_check_eligibility (DD-01) + 8 test case căn cứ/hạn/trạng thái,Sprint 1,BE-Hùng,12,14,—,Done,"DD-01, BR-01/02, Q-19",T011
+29,T013,issue,EP03 Người tham gia & tư cách 許可/承認,"[T013] fn_qualification_transition: 申請→有効…, maker≠checker (PTY-05/06)",Sprint 2,BE-Hùng,12,,—,Todo,"SM-01, SCR-021-022",T012
+30,T014,issue,EP03 Người tham gia & tư cách 許可/承認,"[T014] API PTY-01〜04, PTY-07 (log PII_READ)",Sprint 2,BE-Hùng,8,,—,Todo,"API §4, APPI-01",T012
+31,T015,issue,EP03 Người tham gia & tư cách 許可/承認,"[T015] SCR-021/022 UI: căn cứ cố định theo loại, bảng trạng thái, modal đăng ký",Sprint 2,FE-Mai,18,,—,Todo,SCR-021-022.md,"T013,T014"
+32,T016,issue,EP03 Người tham gia & tư cách 許可/承認,[T016] BAT-03 01:30: chuyển 期限切れ + thông báo 失効間近,Sprint 3,BE-Linh,6,,—,Todo,"SM-01, FR-PARTY-03",T013
+33,T017,issue,EP03 Người tham gia & tư cách 許可/承認,"[T017] Xóa logic trùng party-qualification-status.ts, UI đọc từ API",Sprint 2,FE-Mai,3,,—,Todo,ADR-002,T014
+34,T018,issue,EP04 Lô hàng (ロット),[T018] code_sequences + fn_next_code thay count(*)+1 (GAP-08),Sprint 1,BE-Linh,8,8,—,Done,ADR-012,T003
+35,T019,issue,EP04 Lô hàng (ロット),"[T019] lot_qty_ledger + fn_lot_receive (BR-03, GAP-05)",Sprint 1,BE-Linh,12,12,—,Done,"DB 7.11, BR-03",T018
+36,T020,issue,EP04 Lô hàng (ロット),[T020] SM-02 thêm 販売準備; 目利き chỉ ROLE-JUDGE; sửa đánh giá cần lý do (GAP-02),Sprint 2,BE-Linh,8,,—,Todo,"SM-02, Q-33",T019
+37,T021,issue,EP04 Lô hàng (ロット),"[T021] SCR-030 tablet UI (ô lớn, bàn phím số, in PRT-01) — chưa offline",Sprint 1,FE-Mai,18,20,—,Done,SCR-030.md,T019
+38,T022,issue,EP04 Lô hàng (ロット),"[T022] SCR-031/032/033 danh sách, chi tiết lô, nhập 目利き",Sprint 3,FE-Mai,12,,—,Todo,Screen List,T020
+39,T023,issue,EP04 Lô hàng (ロット),[T023] SCR-034 điều chỉnh thuộc tính lô có lý do,,BE-Linh,10,,—,Todo,FR-LOT-04,T019
+40,T024,issue,EP05 相対取引 (luồng chính),[T024] Bảng trade_entries + chuyển dữ liệu giao dịch cũ sang bút toán 原始 (ADR-004),Sprint 1,BE-Nam,20,30,—,Done,"ADR-004, DB 7.13, GAP-01",
+41,T025,issue,EP05 相対取引 (luồng chính),"[T025] fn_aitai_create_confirm (DD-02): 1 transaction, khóa lô, idempotency",Sprint 1,BE-Nam,20,22,—,Done,"DD-02, BR-02〜04","T012,T018,T019,T024"
+42,T026,issue,EP05 相対取引 (luồng chính),[T026] API TRD-02 + ánh xạ lỗi 409 E-codes (Common Message),Sprint 1,BE-Nam,8,8,—,Done,API 5.1,T025
+43,T027,issue,EP05 相対取引 (luồng chính),"[T027] SCR-040: F9/Esc/F2, vùng B kiểm tra trước, focus theo lỗi",Sprint 1,FE-Mai,18,14,—,In Progress,SCR-040.md,T026
+44,T028,issue,EP05 相対取引 (luồng chính),"[T028] Test đồng thời: 2 người xác nhận cùng lô, không bán vượt",Sprint 1,QA-Tú,10,0,—,Todo,"BR-03, NFR-PERF-02",T025
+45,T029,issue,EP05 相対取引 (luồng chính),[T029] TRD-04 hủy giao dịch + ledger trả số lượng,Sprint 2,BE-Linh,6,,—,Todo,BR-05,T025
+46,T030,issue,EP05 相対取引 (luồng chính),[T030] SCR-041/042 + PRT-02 取引票,Sprint 1,FE-Quân,12,8,—,In Progress,Screen List,T026
+47,T031,issue,EP06 せり結果 (chỉ ghi kết quả),"[T031] fn_seri_record/approve/reject + 差戻し (DD-03, GAP-10)",Sprint 2,BE-Nam,12,,—,Todo,"DD-03, SM-04",T025
+48,T032,issue,EP06 せり結果 (chỉ ghi kết quả),[T032] SCR-051/052 UI nhập kết quả + danh sách 確認待ち,Sprint 2,FE-Quân,16,,—,Todo,SCR-051-052.md,T031
+49,T033,issue,EP06 せり結果 (chỉ ghi kết quả),[T033] Test maker≠checker và đua duyệt せり,Sprint 2,QA-Tú,4,,—,Todo,BR-12,T031
+50,T034,issue,EP07 Giao hàng & offline,"[T034] fn_record_delivery theo sổ bút toán + BR-15 資格確認 (DD-04, GAP-12)",Sprint 2,BE-Hùng,18,,—,Todo,"DD-04, BR-07, BR-15","T024,T012"
+51,T035,issue,EP07 Giao hàng & offline,[T035] DEL-03 giải quyết ngoại lệ (người ≠ người ghi),Sprint 3,BE-Hùng,8,,—,Todo,DD-04 b6,T034
+52,T036,issue,EP07 Giao hàng & offline,[T036] SCR-061 tablet UI ghi giao hàng + ngoại lệ + ảnh,Sprint 3,FE-Quân,18,,—,Todo,SCR-061.md,T034
+53,T037,issue,EP07 Giao hàng & offline,"[T037] SCR-060 bảng giao hàng (tồn đọng, ngoại lệ)",Sprint 3,FE-Mai,12,,—,Todo,FT-06-06,T034
+54,T038,issue,EP07 Giao hàng & offline,[T038] PWA: service worker + hàng đợi IndexedDB cho SCR-030/061 (ADR-007),Sprint 4,FE-Mai,30,,—,Todo,ADR-007,"T021,T036"
+55,T039,issue,EP07 Giao hàng & offline,[T039] SYN-01 + sync_submissions + phát hiện xung đột (DD-09),Sprint 4,BE-Linh,20,,—,Todo,DD-09,T038
+56,T040,issue,EP07 Giao hàng & offline,[T040] SCR-160 màn hình giải quyết xung đột,Sprint 4,FE-Mai,12,,—,Todo,DD-09,T039
+57,T041,issue,EP07 Giao hàng & offline,[T041] Diễn tập ngắt Wi-Fi tại chợ (chuẩn bị UAT),,QA-Tú,8,,—,Todo,R-12,T040
+58,T042,issue,EP08 Đối chiếu & khóa ngày,[T042] business_days SM-06 + fn_lock_business_day (DD-05),Sprint 2,BE-Linh,12,,—,Todo,DD-05,T024
+59,T043,issue,EP08 Đối chiếu & khóa ngày,"[T043] Xin mở lại ngày / duyệt / 公開 (STL-03/04/06, GAP-11)",Sprint 3,BE-Linh,12,,—,Todo,SM-06,T042
+60,T044,issue,EP08 Đối chiếu & khóa ngày,[T044] SCR-070/072 UI đối chiếu + checklist khóa,Sprint 3,FE-Mai,18,,—,Todo,SCR-070-072.md,T042
+61,T045,issue,EP08 Đối chiếu & khóa ngày,[T045] market_calendar + SCR-150 (GAP-14),Sprint 3,BE-Hùng,10,,—,Todo,ADR-005,T025
+62,T046,issue,EP08 Đối chiếu & khóa ngày,[T046] Tranh chấp SCR-071 (STL-05),,BE-Hùng,12,,—,Todo,FR-SETTLE-03,T042
+63,T047,issue,EP09 Sửa sau xác nhận 赤黒,"[T047] fn_approve_correction: 赤黒 vào trade_entries, sửa nhiều lần (DD-06, GAP-01/16)",Sprint 2,BE-Nam,20,,—,Todo,"DD-06, ADR-004",T024
+64,T048,issue,EP09 Sửa sau xác nhận 赤黒,[T048] COR-06 preview (dry-run),Sprint 3,BE-Hùng,8,,—,Todo,DD-06,T047
+65,T049,issue,EP09 Sửa sau xác nhận 赤黒,[T049] Đính kèm S3 presigned (ATT-01/02) + bắt buộc chứng cứ (GAP-06),Sprint 2,BE-Linh,12,,—,Todo,"D.4, E-COR-01",T001
+66,T050,issue,EP09 Sửa sau xác nhận 赤黒,"[T050] SCR-081/082 UI (so sánh trước/sau, preview bút toán)",Sprint 3,FE-Quân,18,,—,Todo,SCR-081-082.md,T048
+67,T051,issue,EP09 Sửa sau xác nhận 赤黒,"[T051] Chuyển 5 API đọc sang trade_entries (settlement, reports, deliveries, incentives, trades) — đã ước lượng lại 5→8 SP sau Sprint 1 (R-3)",Sprint 2,BE-Nam,28,,—,Todo,ADR-004 Hệ quả,T024
+68,T052,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T052] [INC-1] incentive_periods: khóa kỳ + chọn chế độ 本計算/再計算/次期差分 (DD-07 b1),Sprint 2,BE-Hùng,10,,—,Todo,"DD-07, BR-09, A4-06",T053
+69,T053,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T053] [INC-2] fn_resolve_rate theo ngày cuối kỳ (DD-07 b2 / DD-08),Sprint 1,BE-Linh,6,6,—,Done,DD-08,T003
+70,T054,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,"[T054] [INC-3] Tính hạn thanh toán: cuối kỳ + N ngày, tính cả ngày hạn, không dời ngày nghỉ",Sprint 1,BE-Linh,4,4,—,Done,"DD-07 b3, Q-08",
+71,T055,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,"[T055] [INC-4] Tổng 適格金額 từ trade_entries, loại 卸売業者, gồm 赤黒 (DD-07 b4)",Sprint 2,BE-Hùng,10,,—,Todo,"DD-07 b4, A4-05","T024,T051"
+72,T056,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T056] [INC-5] Đối chiếu 請求額 / đã trả trong hạn từ payment_lines (DD-07 b5),Sprint 2,BE-Hùng,8,,—,Todo,"DD-07 b5, A4-04",T059
+73,T057,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T057] [INC-6] fn_incentive_amount + 12 test vector (INC-EDGE-01〜03),Sprint 1,BE-Nam,8,7,—,Done,"DD-07 b6, FS-07, BR-08",T003
+74,T058,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T058] [INC-7] Ghi 本計算/次期差分 + audit (DD-07 b7),Sprint 2,BE-Hùng,12,,—,Todo,"DD-07 b7, BR-09","T052,T055,T056,T057"
+75,T059,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,"[T059] [INC-8] Import CSV công nợ/thanh toán, all-or-nothing, lỗi từng dòng (INC-01)",Sprint 2,BE-Linh,18,,—,Todo,"ADR-009, API 5.7",T065
+76,T060,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T060] [INC-9] Sửa tay dòng thanh toán có lý do (SCR-090),Sprint 3,FE-Mai,8,,—,Todo,SCR-090,T059
+77,T061,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,"[T061] [INC-10] API INC-02/03/04 (chạy, xem, chốt kỳ)",Sprint 2,BE-Hùng,8,,—,Todo,API 5.8,T058
+78,T062,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,"[T062] [INC-11] SCR-091 UI: bản料率 áp dụng, lý do 0円, 次期差分",Sprint 3,FE-Quân,16,,—,Todo,SCR-091.md,T061
+79,T063,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T063] [INC-12] RPT-07 / FORM-INC-01 xuất CSV,Sprint 3,BE-Linh,8,,—,Todo,TBL-REPORT-01,T061
+80,T064,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,"[T064] [INC-13] Test tích hợp: 赤黒 sau chốt kỳ (T9), đổi料率 giữa kỳ (T10), thiếu dữ liệu (T11)",Sprint 3,QA-Tú,12,,—,Todo,DD-07 test vectors,"T058,T066"
+81,T065,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T065] [INC-14] Khách xác nhận Q-06/07/08/29/30 + ký test vector,Sprint 1,BrSE-An,4,2,—,Blocked,QA-List,
+82,T066,issue,EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm),"[T066] rate_versions: trạng thái SM-09, số bản qua fn_next_code (GAP-09)",Sprint 2,BE-Linh,8,,—,Todo,SM-09,T018
+83,T067,issue,EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm),[T067] fn_rate_decide: maker≠checker + tối đa 4 lần/năm tài chính (A4-07),Sprint 2,BE-Linh,10,,—,Todo,"DD-08, BR-10, Q-32",T066
+84,T068,issue,EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm),[T068] Rollback + bản trước tự có hiệu lực + danh sách kỳ bị ảnh hưởng,Sprint 3,BE-Linh,8,,—,Todo,DD-08,T067
+85,T069,issue,EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm),[T069] BAT-05 02:00 kích hoạt bản 発効予定,Sprint 3,BE-Linh,6,,—,Todo,SM-09,T067
+86,T070,issue,EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm),"[T070] SCR-100〜102 UI (bộ đếm 3/4, so sánh bản trước)",Sprint 3,FE-Quân,16,,—,Todo,SCR-101-102.md,T067
+87,T071,issue,EP12 Báo cáo & 会計連携 IF-ACC-01,[T071] BAT-01: RPT-01〜05 báo cáo ngày,Sprint 4,BE-Linh,20,,—,Todo,TBL-REPORT-01,T042
+88,T072,issue,EP12 Báo cáo & 会計連携 IF-ACC-01,[T072] BAT-01: RPT-06〜09,Sprint 4,BE-Linh,20,,—,Todo,TBL-REPORT-01,T071
+89,T073,issue,EP12 Báo cáo & 会計連携 IF-ACC-01,[T073] RPT-10〜12 báo cáo tháng,Sprint 5,BE-Linh,12,,—,Todo,FR-RPT-02,T071
+90,T074,issue,EP12 Báo cáo & 会計連携 IF-ACC-01,"[T074] BAT-02 IF-ACC-01: acc_export_batches, SFTP, thử lại 3 lần (GAP-13)",Sprint 4,BE-Hùng,18,,—,Todo,ADR-009,T042
+91,T075,issue,EP12 Báo cáo & 会計連携 IF-ACC-01,"[T075] SCR-120/130 xuất báo cáo, lịch sử IF-ACC",Sprint 4,FE-Mai,12,,—,Todo,Screen List,T074
+92,T076,issue,EP12 Báo cáo & 会計連携 IF-ACC-01,[T076] PRT-01〜04 PDF theo mẫu khách,,FE-Mai,18,,—,Todo,Q-21,
+93,T077,issue,EP13 Thông báo · batch · vận hành,"[T077] notifications outbox + BAT-04 gửi SES, thử 3 lần (ADR-011)",Sprint 4,BE-Hùng,18,,—,Todo,ADR-011,T001
+94,T078,issue,EP13 Thông báo · batch · vận hành,"[T078] SCR-004/110/111 thông báo, cài đặt, log gửi",Sprint 5,FE-Mai,12,,—,Todo,FR-NOTIFY-03,T077
+95,T079,issue,EP13 Thông báo · batch · vận hành,[T079] job_runs + SCR-170 trạng thái batch,Sprint 5,BE-Linh,8,,—,Todo,FT-17-03,T071
+96,T080,issue,EP14 Audit · master · lưu trữ,"[T080] fn_audit trong cùng transaction cho mọi hàm ghi + business_day, actor_email (GAP-04)",Sprint 2,BE-Linh,10,,—,Todo,"ADR-003, BR-13",T003
+97,T081,issue,EP14 Audit · master · lưu trữ,[T081] SCR-140/141 tìm audit p95 ≤ 2s + log PII_READ,Sprint 3,FE-Mai,12,,—,Todo,FR-AUDIT-02,T080
+98,T082,issue,EP14 Audit · master · lưu trữ,[T082] Partition năm + S3 lifecycle + BAT-06,Sprint 5,BE-Hùng,12,,—,Todo,DB §5,T001
+99,T083,issue,EP14 Audit · master · lưu trữ,[T083] Master 品目/荷主 SCR-151/152,Sprint 1,FE-Quân,8,9,—,Done,Screen List,
+100,T084,issue,EP15 Migration dữ liệu,"[T084] Profiling dữ liệu Excel của khách (C.4: mã lệch, trùng, thiếu)",Sprint 4,BE-Hùng,20,,—,Todo,MIG-01〜02,
+101,T085,issue,EP15 Migration dữ liệu,"[T085] Wave 1: người tham gia, tư cách, tài khoản",Sprint 5,BE-Hùng,20,,—,Todo,MIG-03,T084
+102,T086,issue,EP15 Migration dữ liệu,[T086] Wave 2: lô/giao dịch 13 tháng (Q-15) — tách tiếp khi có dữ liệu,Sprint 5,BE-Linh,30,,—,Todo,MIG-03,T085
+103,T087,issue,EP15 Migration dữ liệu,"[T087] Wave 3: giao hàng chưa xong, số dư 奨励金 giữa kỳ",Sprint 5,BE-Hùng,20,,—,Todo,MIG-03,T086
+104,T088,issue,EP16 Quản lý & xác nhận với khách,"[T088] Gửi Q-26〜Q-33 cho khách, cập nhật PREMISE/ADR theo trả lời",Sprint 1,BrSE-An,6,6,—,Done,"QA-List, CR",
+105,T089,issue,EP16 Quản lý & xác nhận với khách,[T089] Chạy SQL DB §6.4 trên Supabase xác nhận schema thật,Sprint 1,BE-Linh,2,2,—,Done,DB §6.4,
+106,T090,issue,EP16 Quản lý & xác nhận với khách,[T090] Review checklist AI-report §4.2 của LAB-4,Sprint 1,BrSE-An,3,3,—,Done,LAB-4 AI-report,
+107,T091,issue,EP05 相対取引 (luồng chính),[T091] Test viewpoint + testcase SCR-040 / TRD-02 (template Sun* Testcase),Sprint 1,QA-Tú,12,12,—,Done,"SCR-040.md, Business Rules §4",
+108,T092,issue,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T092] Dữ liệu test 12 vector 奨励金 + seed dùng chung BE/QA,Sprint 1,QA-Tú,8,8,—,Done,DD-07 test vectors,
+109,T093,issue,EP01 Nền tảng & hạ tầng production,"[T093] Thư viện component theo wireframe (bảng, ô số, tile tablet, badge trạng thái)",Sprint 1,FE-Quân,20,20,—,Done,03_Design-UIUX,
+110,T094,issue,EP01 Nền tảng & hạ tầng production,"[T094] Layout chung CS-01〜CS-10: header ngày nghiệp vụ JST, xử lý 400/409, phím tắt",Sprint 1,FE-Quân,12,12,—,Done,Screen List §3,
+111,T095,issue,EP16 Quản lý & xác nhận với khách,[T095] Test plan + test viewpoint toàn dự án (template Sun*),Sprint 1,QA-Tú,20,22,—,Done,Template Test Viewpoint,
+112,T001-1,sub,EP01 Nền tảng & hạ tầng production,"[T001-1] VPC, subnet 2 AZ, security group",Sprint 1,BE-Hùng,10,,,Done,,
+113,T001-2,sub,EP01 Nền tảng & hạ tầng production,[T001-2] ECS cluster + ALB + CloudFront/WAF,Sprint 1,BE-Hùng,12,,,Done,,
+114,T001-3,sub,EP01 Nền tảng & hạ tầng production,[T001-3] RDS Multi-AZ + S3 (KMS) + Secrets Manager,Sprint 1,BE-Hùng,10,,,In Progress,,
+115,T025-1,sub,EP05 相対取引 (luồng chính),[T025-1] Hàm DB fn_aitai_create_confirm + khóa dòng lô,Sprint 1,BE-Nam,12,,,Done,,
+116,T025-2,sub,EP05 相対取引 (luồng chính),[T025-2] Idempotency qua sync_submissions,Sprint 1,BE-Nam,8,,,Done,,
+117,T038-1,sub,EP07 Giao hàng & offline,[T038-1] Service worker + cache master offline,Sprint 4,FE-Mai,12,,,Todo,,
+118,T038-2,sub,EP07 Giao hàng & offline,[T038-2] Hàng đợi IndexedDB + giới hạn 30 phút / 50 thao tác,Sprint 4,FE-Mai,18,,,Todo,,
+119,T059-1,sub,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T059-1] Parser CSV (UTF-8 BOM / Shift_JIS) + validate từng dòng,Sprint 2,BE-Linh,10,,,Todo,,
+120,T059-2,sub,EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng,[T059-2] Ghi all-or-nothing + trả lỗi theo dòng,Sprint 2,BE-Linh,8,,,Todo,,
+121,T086-1,sub,EP15 Migration dữ liệu,[T086-1] Mapping + nạp lô 13 tháng,Sprint 5,BE-Linh,12,,,Todo,,
+122,T086-2,sub,EP15 Migration dữ liệu,[T086-2] Mapping giao dịch + sinh bút toán 原始,Sprint 5,BE-Linh,10,,,Todo,,
+123,T086-3,sub,EP15 Migration dữ liệu,"[T086-3] Đối chiếu số dòng / tổng tiền, biên bản",Sprint 5,BE-Linh,8,,,Todo,,

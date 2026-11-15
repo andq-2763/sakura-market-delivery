@@ -1,0 +1,2435 @@
+{
+ "repo": "andq-2763/sakura-market-delivery",
+ "project_title": "桜水産市場 業務支援システム — Delivery (LAB-5)",
+ "iterations": [
+  {
+   "title": "Sprint 1",
+   "startDate": "2027-03-01",
+   "duration": 14
+  },
+  {
+   "title": "Sprint 2",
+   "startDate": "2027-03-15",
+   "duration": 14
+  },
+  {
+   "title": "Sprint 3",
+   "startDate": "2027-03-29",
+   "duration": 14
+  },
+  {
+   "title": "Sprint 4",
+   "startDate": "2027-04-12",
+   "duration": 14
+  },
+  {
+   "title": "Sprint 5",
+   "startDate": "2027-04-26",
+   "duration": 14
+  }
+ ],
+ "members": [
+  "BE-Hùng",
+  "BE-Linh",
+  "BE-Nam",
+  "BrSE-An",
+  "FE-Mai",
+  "FE-Quân",
+  "QA-Tú"
+ ],
+ "epics": [
+  "EP01 Nền tảng & hạ tầng production",
+  "EP02 Xác thực & phân quyền",
+  "EP03 Người tham gia & tư cách 許可/承認",
+  "EP04 Lô hàng (ロット)",
+  "EP05 相対取引 (luồng chính)",
+  "EP06 せり結果 (chỉ ghi kết quả)",
+  "EP07 Giao hàng & offline",
+  "EP08 Đối chiếu & khóa ngày",
+  "EP09 Sửa sau xác nhận 赤黒",
+  "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+  "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
+  "EP12 Báo cáo & 会計連携 IF-ACC-01",
+  "EP13 Thông báo · batch · vận hành",
+  "EP14 Audit · master · lưu trữ",
+  "EP15 Migration dữ liệu",
+  "EP16 Quản lý & xác nhận với khách"
+ ],
+ "expected_numbers": {
+  "EP01": 1,
+  "EP02": 2,
+  "EP03": 3,
+  "EP04": 4,
+  "EP05": 5,
+  "EP06": 6,
+  "EP07": 7,
+  "EP08": 8,
+  "EP09": 9,
+  "EP10": 10,
+  "EP11": 11,
+  "EP12": 12,
+  "EP13": 13,
+  "EP14": 14,
+  "EP15": 15,
+  "EP16": 16,
+  "T001": 17,
+  "T002": 18,
+  "T003": 19,
+  "T004": 20,
+  "T005": 21,
+  "T006": 22,
+  "T007": 23,
+  "T008": 24,
+  "T009": 25,
+  "T010": 26,
+  "T011": 27,
+  "T012": 28,
+  "T013": 29,
+  "T014": 30,
+  "T015": 31,
+  "T016": 32,
+  "T017": 33,
+  "T018": 34,
+  "T019": 35,
+  "T020": 36,
+  "T021": 37,
+  "T022": 38,
+  "T023": 39,
+  "T024": 40,
+  "T025": 41,
+  "T026": 42,
+  "T027": 43,
+  "T028": 44,
+  "T029": 45,
+  "T030": 46,
+  "T031": 47,
+  "T032": 48,
+  "T033": 49,
+  "T034": 50,
+  "T035": 51,
+  "T036": 52,
+  "T037": 53,
+  "T038": 54,
+  "T039": 55,
+  "T040": 56,
+  "T041": 57,
+  "T042": 58,
+  "T043": 59,
+  "T044": 60,
+  "T045": 61,
+  "T046": 62,
+  "T047": 63,
+  "T048": 64,
+  "T049": 65,
+  "T050": 66,
+  "T051": 67,
+  "T052": 68,
+  "T053": 69,
+  "T054": 70,
+  "T055": 71,
+  "T056": 72,
+  "T057": 73,
+  "T058": 74,
+  "T059": 75,
+  "T060": 76,
+  "T061": 77,
+  "T062": 78,
+  "T063": 79,
+  "T064": 80,
+  "T065": 81,
+  "T066": 82,
+  "T067": 83,
+  "T068": 84,
+  "T069": 85,
+  "T070": 86,
+  "T071": 87,
+  "T072": 88,
+  "T073": 89,
+  "T074": 90,
+  "T075": 91,
+  "T076": 92,
+  "T077": 93,
+  "T078": 94,
+  "T079": 95,
+  "T080": 96,
+  "T081": 97,
+  "T082": 98,
+  "T083": 99,
+  "T084": 100,
+  "T085": 101,
+  "T086": 102,
+  "T087": 103,
+  "T088": 104,
+  "T089": 105,
+  "T090": 106,
+  "T091": 107,
+  "T092": 108,
+  "T093": 109,
+  "T094": 110,
+  "T095": 111,
+  "T001-1": 112,
+  "T001-2": 113,
+  "T001-3": 114,
+  "T025-1": 115,
+  "T025-2": 116,
+  "T038-1": 117,
+  "T038-2": 118,
+  "T059-1": 119,
+  "T059-2": 120,
+  "T086-1": 121,
+  "T086-2": 122,
+  "T086-3": 123
+ },
+ "issues": [
+  {
+   "key": "EP01",
+   "kind": "epic",
+   "title": "[EP01] Nền tảng & hạ tầng production",
+   "body": "## Epic EP01: Nền tảng & hạ tầng production\n\n**Spec LAB-4:** ADR-010, 01_Architecture-Design.md, 03_Database-DDL.sql — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** ADR-010\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 132,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": false
+  },
+  {
+   "key": "EP02",
+   "kind": "epic",
+   "title": "[EP02] Xác thực & phân quyền",
+   "body": "## Epic EP02: Xác thực & phân quyền\n\n**Spec LAB-4:** ADR-008, DB §3.1 — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F01, ADR-008\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 68,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP02 Xác thực & phân quyền",
+   "close": false
+  },
+  {
+   "key": "EP03",
+   "kind": "epic",
+   "title": "[EP03] Người tham gia & tư cách 許可/承認",
+   "body": "## Epic EP03: Người tham gia & tư cách 許可/承認\n\n**Spec LAB-4:** ADR-002, DD-01, SCR-021-022.md — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F02, ADR-002, SM-01\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic",
+    "constraint:qualification"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 69,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP03 Người tham gia & tư cách 許可/承認",
+   "close": false
+  },
+  {
+   "key": "EP04",
+   "kind": "epic",
+   "title": "[EP04] Lô hàng (ロット)",
+   "body": "## Epic EP04: Lô hàng (ロット)\n\n**Spec LAB-4:** SM-02, ADR-012, SCR-030.md — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F03, SM-02\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 68,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP04 Lô hàng (ロット)",
+   "close": false
+  },
+  {
+   "key": "EP05",
+   "kind": "epic",
+   "title": "[EP05] 相対取引 (luồng chính)",
+   "body": "## Epic EP05: 相対取引 (luồng chính)\n\n**Spec LAB-4:** ADR-001, DD-02, SCR-040.md, API 5.1 — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F04, ADR-001, DD-02\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic",
+    "constraint:aitai-seri"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 106,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": false
+  },
+  {
+   "key": "EP06",
+   "kind": "epic",
+   "title": "[EP06] せり結果 (chỉ ghi kết quả)",
+   "body": "## Epic EP06: せり結果 (chỉ ghi kết quả)\n\n**Spec LAB-4:** ADR-001, DD-03, SCR-051-052.md — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F05, ADR-001, DD-03\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic",
+    "constraint:aitai-seri"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 32,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP06 せり結果 (chỉ ghi kết quả)",
+   "close": false
+  },
+  {
+   "key": "EP07",
+   "kind": "epic",
+   "title": "[EP07] Giao hàng & offline",
+   "body": "## Epic EP07: Giao hàng & offline\n\n**Spec LAB-4:** ADR-007, DD-04, DD-09, SCR-061.md — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F06, F16, ADR-007, DD-04, DD-09\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 126,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false
+  },
+  {
+   "key": "EP08",
+   "kind": "epic",
+   "title": "[EP08] Đối chiếu & khóa ngày",
+   "body": "## Epic EP08: Đối chiếu & khóa ngày\n\n**Spec LAB-4:** SM-06, DD-05, SCR-070-072.md — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F07, SM-06, DD-05\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 64,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP08 Đối chiếu & khóa ngày",
+   "close": false
+  },
+  {
+   "key": "EP09",
+   "kind": "epic",
+   "title": "[EP09] Sửa sau xác nhận 赤黒",
+   "body": "## Epic EP09: Sửa sau xác nhận 赤黒\n\n**Spec LAB-4:** ADR-004, DD-06, SCR-081-082.md — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F08, ADR-004, DD-06\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic",
+    "constraint:red-black"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 86,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP09 Sửa sau xác nhận 赤黒",
+   "close": false
+  },
+  {
+   "key": "EP10",
+   "kind": "epic",
+   "title": "[EP10] 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "body": "## Epic EP10: 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** BR-08/09, DD-07, SCR-091.md, API 5.7/5.8 — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F09, BR-08, BR-09, DD-07\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic",
+    "constraint:incentive"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 140,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false
+  },
+  {
+   "key": "EP11",
+   "kind": "epic",
+   "title": "[EP11] 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
+   "body": "## Epic EP11: 料率版 (bản tỉ lệ — tối đa 4 lần/năm)\n\n**Spec LAB-4:** ADR-006, DD-08, SCR-101-102.md — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F10, ADR-006, DD-08\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic",
+    "constraint:rate-governance"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 48,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
+   "close": false
+  },
+  {
+   "key": "EP12",
+   "kind": "epic",
+   "title": "[EP12] Báo cáo & 会計連携 IF-ACC-01",
+   "body": "## Epic EP12: Báo cáo & 会計連携 IF-ACC-01\n\n**Spec LAB-4:** ADR-009, Screen List (RPT/PRT) — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F12, F13, ADR-009\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 100,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
+   "close": false
+  },
+  {
+   "key": "EP13",
+   "kind": "epic",
+   "title": "[EP13] Thông báo · batch · vận hành",
+   "body": "## Epic EP13: Thông báo · batch · vận hành\n\n**Spec LAB-4:** ADR-011 — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F11, F17, ADR-011\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 38,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP13 Thông báo · batch · vận hành",
+   "close": false
+  },
+  {
+   "key": "EP14",
+   "kind": "epic",
+   "title": "[EP14] Audit · master · lưu trữ",
+   "body": "## Epic EP14: Audit · master · lưu trữ\n\n**Spec LAB-4:** DB §5, BR-13 — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F14, F15\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 42,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP14 Audit · master · lưu trữ",
+   "close": false
+  },
+  {
+   "key": "EP15",
+   "kind": "epic",
+   "title": "[EP15] Migration dữ liệu",
+   "body": "## Epic EP15: Migration dữ liệu\n\n**Spec LAB-4:** PREMISE LAB-4 §3 (Q-15), RFP 10-03 — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** F18\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 90,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP15 Migration dữ liệu",
+   "close": false
+  },
+  {
+   "key": "EP16",
+   "kind": "epic",
+   "title": "[EP16] Quản lý & xác nhận với khách",
+   "body": "## Epic EP16: Quản lý & xác nhận với khách\n\n**Spec LAB-4:** QA-List, CR, AI-report LAB-4 — https://github.com/andq-2763/sakura-market-prototype/blob/main/specs/\n\n**Căn cứ:** QA-List, CR\n\nCác issue con là sub-issue của epic này.",
+   "labels": [
+    "type:epic"
+   ],
+   "parent": null,
+   "iteration": null,
+   "member": null,
+   "hours": 31,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP16 Quản lý & xác nhận với khách",
+   "close": false
+  },
+  {
+   "key": "T001",
+   "kind": "issue",
+   "title": "[T001] Terraform: VPC, ECS Fargate 2 AZ, RDS PostgreSQL Multi-AZ, S3 (dev/stg)",
+   "body": "**Epic:** #1 EP01 Nền tảng & hạ tầng production\n\n**Spec LAB-4:** ADR-010, HLD §2\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 32h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] `terraform apply` dựng dev + stg từ đầu\n- [ ] RDS Multi-AZ, S3 mã hóa KMS\n- [ ] Tài liệu biến môi trường\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:infra"
+   ],
+   "parent": "EP01",
+   "iteration": "Sprint 1",
+   "member": "BE-Hùng",
+   "hours": 32,
+   "actual": 28,
+   "status": "In Progress",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T002",
+   "kind": "issue",
+   "title": "[T002] CI/CD GitHub Actions → ECR → ECS (blue/green, chặn deploy 01:30–10:00 JST)",
+   "body": "**Epic:** #1 EP01 Nền tảng & hạ tầng production\n\n**Spec LAB-4:** ADR-010, HLD §7\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 20h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #17 (T001)\n\n**Định nghĩa xong (DoD):**\n- [ ] PR merge vào main tự deploy stg\n- [ ] Deploy prod bị chặn trong giờ dịch vụ\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:infra"
+   ],
+   "parent": "EP01",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T003",
+   "kind": "issue",
+   "title": "[T003] Thay client Supabase bằng `pg` + công cụ migration schema từ DDL LAB-4",
+   "body": "**Epic:** #1 EP01 Nền tảng & hạ tầng production\n\n**Spec LAB-4:** ADR-010, 03_Database-DDL.sql\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 20h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] App chạy với PostgreSQL thường (không phụ thuộc auth.users)\n- [ ] `npm run migrate` tạo 29 bảng\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "gap-from-prototype"
+   ],
+   "parent": "EP01",
+   "iteration": "Sprint 1",
+   "member": "BE-Linh",
+   "hours": 20,
+   "actual": 24,
+   "status": "Done",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T004",
+   "kind": "issue",
+   "title": "[T004] Backup PITR + snapshot copy sang Osaka + diễn tập restore (RTO 4h/RPO 15')",
+   "body": "**Epic:** #1 EP01 Nền tảng & hạ tầng production\n\n**Spec LAB-4:** NFR-AVL-03, ADR-010\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 18h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #17 (T001)\n\n**Định nghĩa xong (DoD):**\n- [ ] Biên bản diễn tập restore < 4h\n- [ ] Snapshot Osaka mỗi 15 phút\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:infra"
+   ],
+   "parent": "EP01",
+   "iteration": "Sprint 3",
+   "member": "BE-Hùng",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T005",
+   "kind": "issue",
+   "title": "[T005] CloudWatch alarm + uptime monitor ngoài AWS (02:00–10:00)",
+   "body": "**Epic:** #1 EP01 Nền tảng & hạ tầng production\n\n**Spec LAB-4:** NFR-OPS-01\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 10h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #17 (T001)\n\n**Định nghĩa xong (DoD):**\n- [ ] Alarm health, batch, notification fail\n- [ ] Báo cáo uptime tháng\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:infra"
+   ],
+   "parent": "EP01",
+   "iteration": "Sprint 3",
+   "member": "BE-Hùng",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T006",
+   "kind": "issue",
+   "title": "[T006] Cognito login/logout + cookie phiên (AUTH-01/03/04)",
+   "body": "**Epic:** #2 EP02 Xác thực & phân quyền\n\n**Spec LAB-4:** API §4, ADR-010\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 20h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #17 (T001)\n\n**Định nghĩa xong (DoD):**\n- [ ] Đăng nhập 8 tài khoản demo\n- [ ] AUTH-04 trả business_day + permissions\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP02",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP02 Xác thực & phân quyền",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T007",
+   "kind": "issue",
+   "title": "[T007] MFA TOTP bắt buộc cho SYS-ADMIN/APPROVER/RULE-ADMIN/SETTLEMENT (SCR-002)",
+   "body": "**Epic:** #2 EP02 Xác thực & phân quyền\n\n**Spec LAB-4:** NFR-SEC-01\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 12h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #22 (T006)\n\n**Định nghĩa xong (DoD):**\n- [ ] Vai trò bắt buộc không vào được nếu chưa MFA\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP02",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP02 Xác thực & phân quyền",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T008",
+   "kind": "issue",
+   "title": "[T008] Khóa sau 5 lần sai, timeout 30', PIN đổi ca tablet",
+   "body": "**Epic:** #2 EP02 Xác thực & phân quyền\n\n**Spec LAB-4:** NFR-SEC-03, CS-06\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 12h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #22 (T006)\n\n**Định nghĩa xong (DoD):**\n- [ ] Test khóa/mở khóa\n- [ ] Timeout giữ bản nháp form\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP02",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP02 Xác thực & phân quyền",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T009",
+   "kind": "issue",
+   "title": "[T009] Bảng roles + ma trận quyền mặc định 8 vai trò; bỏ quyền nghiệp vụ của SYS-ADMIN",
+   "body": "**Epic:** #2 EP02 Xác thực & phân quyền\n\n**Spec LAB-4:** DB §3.1, ADR-008\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 6h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #19 (T003)\n\n**Định nghĩa xong (DoD):**\n- [ ] Seed đúng ma trận DB §3.1\n- [ ] INTAKE không còn lot.judge\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "gap-from-prototype"
+   ],
+   "parent": "EP02",
+   "iteration": "Sprint 1",
+   "member": "BE-Linh",
+   "hours": 6,
+   "actual": 6,
+   "status": "Done",
+   "epic": "EP02 Xác thực & phân quyền",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T010",
+   "kind": "issue",
+   "title": "[T010] SCR-010/011/012 quản trị tài khoản & quyền (ADM-01〜03)",
+   "body": "**Epic:** #2 EP02 Xác thực & phân quyền\n\n**Spec LAB-4:** Screen List\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 18h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #25 (T009)\n\n**Định nghĩa xong (DoD):**\n- [ ] Đổi quyền có audit\n- [ ] Không tự khóa chính mình\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP02",
+   "iteration": "Sprint 1",
+   "member": "FE-Mai",
+   "hours": 18,
+   "actual": 18,
+   "status": "Done",
+   "epic": "EP02 Xác thực & phân quyền",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T011",
+   "kind": "issue",
+   "title": "[T011] Migration party_qualifications: cột status SM-01 thay `suspended` (GAP-03)",
+   "body": "**Epic:** #3 EP03 Người tham gia & tư cách 許可/承認\n\n**Spec LAB-4:** DB §6.3 GAP-03, SM-01\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 10h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #19 (T003)\n\n**Định nghĩa xong (DoD):**\n- [ ] Dữ liệu seed chuyển đúng 有効/一時停止/期限切れ\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "constraint:qualification",
+    "gap-from-prototype"
+   ],
+   "parent": "EP03",
+   "iteration": "Sprint 1",
+   "member": "BE-Hùng",
+   "hours": 10,
+   "actual": 10,
+   "status": "Done",
+   "epic": "EP03 Người tham gia & tư cách 許可/承認",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T012",
+   "kind": "issue",
+   "title": "[T012] fn_check_eligibility (DD-01) + 8 test case căn cứ/hạn/trạng thái",
+   "body": "**Epic:** #3 EP03 Người tham gia & tư cách 許可/承認\n\n**Spec LAB-4:** DD-01, BR-01/02, Q-19\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 12h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #27 (T011)\n\n**Định nghĩa xong (DoD):**\n- [ ] N03 → E-ELG-03, B02 → E-ELG-02\n- [ ] valid_to là ngày cuối còn hiệu lực\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:qualification"
+   ],
+   "parent": "EP03",
+   "iteration": "Sprint 1",
+   "member": "BE-Hùng",
+   "hours": 12,
+   "actual": 14,
+   "status": "Done",
+   "epic": "EP03 Người tham gia & tư cách 許可/承認",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T013",
+   "kind": "issue",
+   "title": "[T013] fn_qualification_transition: 申請→有効…, maker≠checker (PTY-05/06)",
+   "body": "**Epic:** #3 EP03 Người tham gia & tư cách 許可/承認\n\n**Spec LAB-4:** SM-01, SCR-021-022\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 12h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #28 (T012)\n\n**Định nghĩa xong (DoD):**\n- [ ] Người tạo không duyệt được (E-SOD-01)\n- [ ] Gia hạn = dòng mới\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:qualification"
+   ],
+   "parent": "EP03",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP03 Người tham gia & tư cách 許可/承認",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T014",
+   "kind": "issue",
+   "title": "[T014] API PTY-01〜04, PTY-07 (log PII_READ)",
+   "body": "**Epic:** #3 EP03 Người tham gia & tư cách 許可/承認\n\n**Spec LAB-4:** API §4, APPI-01\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 8h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #28 (T012)\n\n**Định nghĩa xong (DoD):**\n- [ ] PTY-07 trả eligible + error_code\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:qualification"
+   ],
+   "parent": "EP03",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP03 Người tham gia & tư cách 許可/承認",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T015",
+   "kind": "issue",
+   "title": "[T015] SCR-021/022 UI: căn cứ cố định theo loại, bảng trạng thái, modal đăng ký",
+   "body": "**Epic:** #3 EP03 Người tham gia & tư cách 許可/承認\n\n**Spec LAB-4:** SCR-021-022.md\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 18h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #29 (T013), #30 (T014)\n\n**Định nghĩa xong (DoD):**\n- [ ] Không có lựa chọn căn cứ khác loại\n- [ ] Hành động hiện theo trạng thái\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:qualification"
+   ],
+   "parent": "EP03",
+   "iteration": "Sprint 2",
+   "member": "FE-Mai",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP03 Người tham gia & tư cách 許可/承認",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T016",
+   "kind": "issue",
+   "title": "[T016] BAT-03 01:30: chuyển 期限切れ + thông báo 失効間近",
+   "body": "**Epic:** #3 EP03 Người tham gia & tư cách 許可/承認\n\n**Spec LAB-4:** SM-01, FR-PARTY-03\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 6h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #29 (T013)\n\n**Định nghĩa xong (DoD):**\n- [ ] Chạy lại không đổi kết quả\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:qualification"
+   ],
+   "parent": "EP03",
+   "iteration": "Sprint 3",
+   "member": "BE-Linh",
+   "hours": 6,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP03 Người tham gia & tư cách 許可/承認",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T017",
+   "kind": "issue",
+   "title": "[T017] Xóa logic trùng party-qualification-status.ts, UI đọc từ API",
+   "body": "**Epic:** #3 EP03 Người tham gia & tư cách 許可/承認\n\n**Spec LAB-4:** ADR-002\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 3h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #30 (T014)\n\n**Định nghĩa xong (DoD):**\n- [ ] Không còn quy tắc tư cách ở TS\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "constraint:qualification",
+    "gap-from-prototype"
+   ],
+   "parent": "EP03",
+   "iteration": "Sprint 2",
+   "member": "FE-Mai",
+   "hours": 3,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP03 Người tham gia & tư cách 許可/承認",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T018",
+   "kind": "issue",
+   "title": "[T018] code_sequences + fn_next_code thay count(*)+1 (GAP-08)",
+   "body": "**Epic:** #4 EP04 Lô hàng (ロット)\n\n**Spec LAB-4:** ADR-012\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 8h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #19 (T003)\n\n**Định nghĩa xong (DoD):**\n- [ ] 50 request song song không trùng mã\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "gap-from-prototype"
+   ],
+   "parent": "EP04",
+   "iteration": "Sprint 1",
+   "member": "BE-Linh",
+   "hours": 8,
+   "actual": 8,
+   "status": "Done",
+   "epic": "EP04 Lô hàng (ロット)",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T019",
+   "kind": "issue",
+   "title": "[T019] lot_qty_ledger + fn_lot_receive (BR-03, GAP-05)",
+   "body": "**Epic:** #4 EP04 Lô hàng (ロット)\n\n**Spec LAB-4:** DB 7.11, BR-03\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 12h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #34 (T018)\n\n**Định nghĩa xong (DoD):**\n- [ ] available_qty = tổng sổ\n- [ ] Audit cùng transaction\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "gap-from-prototype"
+   ],
+   "parent": "EP04",
+   "iteration": "Sprint 1",
+   "member": "BE-Linh",
+   "hours": 12,
+   "actual": 12,
+   "status": "Done",
+   "epic": "EP04 Lô hàng (ロット)",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T020",
+   "kind": "issue",
+   "title": "[T020] SM-02 thêm 販売準備; 目利き chỉ ROLE-JUDGE; sửa đánh giá cần lý do (GAP-02)",
+   "body": "**Epic:** #4 EP04 Lô hàng (ロット)\n\n**Spec LAB-4:** SM-02, Q-33\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 8h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #35 (T019)\n\n**Định nghĩa xong (DoD):**\n- [ ] INTAKE gọi LOT-04 → 403\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "gap-from-prototype"
+   ],
+   "parent": "EP04",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP04 Lô hàng (ロット)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T021",
+   "kind": "issue",
+   "title": "[T021] SCR-030 tablet UI (ô lớn, bàn phím số, in PRT-01) — chưa offline",
+   "body": "**Epic:** #4 EP04 Lô hàng (ロット)\n\n**Spec LAB-4:** SCR-030.md\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 18h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #35 (T019)\n\n**Định nghĩa xong (DoD):**\n- [ ] Nút ≥ 56px\n- [ ] Mã lô do server cấp\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP04",
+   "iteration": "Sprint 1",
+   "member": "FE-Mai",
+   "hours": 18,
+   "actual": 20,
+   "status": "Done",
+   "epic": "EP04 Lô hàng (ロット)",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T022",
+   "kind": "issue",
+   "title": "[T022] SCR-031/032/033 danh sách, chi tiết lô, nhập 目利き",
+   "body": "**Epic:** #4 EP04 Lô hàng (ロット)\n\n**Spec LAB-4:** Screen List\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 12h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #36 (T020)\n\n**Định nghĩa xong (DoD):**\n- [ ] Hiện sổ số lượng\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP04",
+   "iteration": "Sprint 3",
+   "member": "FE-Mai",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP04 Lô hàng (ロット)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T023",
+   "kind": "issue",
+   "title": "[T023] SCR-034 điều chỉnh thuộc tính lô có lý do",
+   "body": "**Epic:** #4 EP04 Lô hàng (ロット)\n\n**Spec LAB-4:** FR-LOT-04\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 10h · **Iteration:** chưa xếp\n\n**Phụ thuộc:** #35 (T019)\n\n**Định nghĩa xong (DoD):**\n- [ ] Ghi ledger + audit\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP04",
+   "iteration": null,
+   "member": "BE-Linh",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP04 Lô hàng (ロット)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T024",
+   "kind": "issue",
+   "title": "[T024] Bảng trade_entries + chuyển dữ liệu giao dịch cũ sang bút toán 原始 (ADR-004)",
+   "body": "**Epic:** #5 EP05 相対取引 (luồng chính)\n\n**Spec LAB-4:** ADR-004, DB 7.13, GAP-01\n\n**Người phụ trách (giả định):** BE-Nam · **Ước lượng:** 20h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] Mỗi giao dịch cũ có 1 bút toán 原始\n- [ ] Đối chiếu tổng tiền trước/sau migrate bằng nhau\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "constraint:aitai-seri",
+    "constraint:red-black",
+    "gap-from-prototype"
+   ],
+   "parent": "EP05",
+   "iteration": "Sprint 1",
+   "member": "BE-Nam",
+   "hours": 20,
+   "actual": 30,
+   "status": "Done",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T025",
+   "kind": "issue",
+   "title": "[T025] fn_aitai_create_confirm (DD-02): 1 transaction, khóa lô, idempotency",
+   "body": "**Epic:** #5 EP05 相対取引 (luồng chính)\n\n**Spec LAB-4:** DD-02, BR-02〜04\n\n**Người phụ trách (giả định):** BE-Nam · **Ước lượng:** 20h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #28 (T012), #34 (T018), #35 (T019), #40 (T024)\n\n**Định nghĩa xong (DoD):**\n- [ ] Bị từ chối → không tạo bản ghi\n- [ ] Cùng Idempotency-Key → 1 giao dịch\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP05",
+   "iteration": "Sprint 1",
+   "member": "BE-Nam",
+   "hours": 20,
+   "actual": 22,
+   "status": "Done",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T026",
+   "kind": "issue",
+   "title": "[T026] API TRD-02 + ánh xạ lỗi 409 E-codes (Common Message)",
+   "body": "**Epic:** #5 EP05 相対取引 (luồng chính)\n\n**Spec LAB-4:** API 5.1\n\n**Người phụ trách (giả định):** BE-Nam · **Ước lượng:** 8h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #41 (T025)\n\n**Định nghĩa xong (DoD):**\n- [ ] 9 mã lỗi trả đúng\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP05",
+   "iteration": "Sprint 1",
+   "member": "BE-Nam",
+   "hours": 8,
+   "actual": 8,
+   "status": "Done",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T027",
+   "kind": "issue",
+   "title": "[T027] SCR-040: F9/Esc/F2, vùng B kiểm tra trước, focus theo lỗi",
+   "body": "**Epic:** #5 EP05 相対取引 (luồng chính)\n\n**Spec LAB-4:** SCR-040.md\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 18h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #42 (T026)\n\n**Định nghĩa xong (DoD):**\n- [ ] Nhập 1 giao dịch chỉ bằng bàn phím\n- [ ] Lỗi giữ dữ liệu, focus đúng trường\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP05",
+   "iteration": "Sprint 1",
+   "member": "FE-Mai",
+   "hours": 18,
+   "actual": 14,
+   "status": "In Progress",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T028",
+   "kind": "issue",
+   "title": "[T028] Test đồng thời: 2 người xác nhận cùng lô, không bán vượt",
+   "body": "**Epic:** #5 EP05 相対取引 (luồng chính)\n\n**Spec LAB-4:** BR-03, NFR-PERF-02\n\n**Người phụ trách (giả định):** QA-Tú · **Ước lượng:** 10h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #41 (T025)\n\n**Định nghĩa xong (DoD):**\n- [ ] 100 lần chạy, 0 lần available_qty < 0\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:test",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP05",
+   "iteration": "Sprint 1",
+   "member": "QA-Tú",
+   "hours": 10,
+   "actual": 0,
+   "status": "Todo",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T029",
+   "kind": "issue",
+   "title": "[T029] TRD-04 hủy giao dịch + ledger trả số lượng",
+   "body": "**Epic:** #5 EP05 相対取引 (luồng chính)\n\n**Spec LAB-4:** BR-05\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 6h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #41 (T025)\n\n**Định nghĩa xong (DoD):**\n- [ ] Có giao hàng → E-TRD-03\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP05",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 6,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T030",
+   "kind": "issue",
+   "title": "[T030] SCR-041/042 + PRT-02 取引票",
+   "body": "**Epic:** #5 EP05 相対取引 (luồng chính)\n\n**Spec LAB-4:** Screen List\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 12h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #42 (T026)\n\n**Định nghĩa xong (DoD):**\n- [ ] Hiện bút toán + lịch sử\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP05",
+   "iteration": "Sprint 1",
+   "member": "FE-Quân",
+   "hours": 12,
+   "actual": 8,
+   "status": "In Progress",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T031",
+   "kind": "issue",
+   "title": "[T031] fn_seri_record/approve/reject + 差戻し (DD-03, GAP-10)",
+   "body": "**Epic:** #6 EP06 せり結果 (chỉ ghi kết quả)\n\n**Spec LAB-4:** DD-03, SM-04\n\n**Người phụ trách (giả định):** BE-Nam · **Ước lượng:** 12h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #41 (T025)\n\n**Định nghĩa xong (DoD):**\n- [ ] Người nhập không duyệt được\n- [ ] Duyệt mới trừ lô\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP06",
+   "iteration": "Sprint 2",
+   "member": "BE-Nam",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP06 せり結果 (chỉ ghi kết quả)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T032",
+   "kind": "issue",
+   "title": "[T032] SCR-051/052 UI nhập kết quả + danh sách 確認待ち",
+   "body": "**Epic:** #6 EP06 せり結果 (chỉ ghi kết quả)\n\n**Spec LAB-4:** SCR-051-052.md\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 16h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #47 (T031)\n\n**Định nghĩa xong (DoD):**\n- [ ] Dòng của mình: nút disable có lý do\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP06",
+   "iteration": "Sprint 2",
+   "member": "FE-Quân",
+   "hours": 16,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP06 せり結果 (chỉ ghi kết quả)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T033",
+   "kind": "issue",
+   "title": "[T033] Test maker≠checker và đua duyệt せり",
+   "body": "**Epic:** #6 EP06 せり結果 (chỉ ghi kết quả)\n\n**Spec LAB-4:** BR-12\n\n**Người phụ trách (giả định):** QA-Tú · **Ước lượng:** 4h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #47 (T031)\n\n**Định nghĩa xong (DoD):**\n- [ ] Người duyệt thứ 2 nhận 409\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:test",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP06",
+   "iteration": "Sprint 2",
+   "member": "QA-Tú",
+   "hours": 4,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP06 せり結果 (chỉ ghi kết quả)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T034",
+   "kind": "issue",
+   "title": "[T034] fn_record_delivery theo sổ bút toán + BR-15 資格確認 (DD-04, GAP-12)",
+   "body": "**Epic:** #7 EP07 Giao hàng & offline\n\n**Spec LAB-4:** DD-04, BR-07, BR-15\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 18h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #40 (T024), #28 (T012)\n\n**Định nghĩa xong (DoD):**\n- [ ] Giao dịch đã 赤黒 dùng số mới\n- [ ] Tư cách lỗi → 例外(資格確認)\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP07",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T035",
+   "kind": "issue",
+   "title": "[T035] DEL-03 giải quyết ngoại lệ (người ≠ người ghi)",
+   "body": "**Epic:** #7 EP07 Giao hàng & offline\n\n**Spec LAB-4:** DD-04 b6\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 8h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #50 (T034)\n\n**Định nghĩa xong (DoD):**\n- [ ] E-SOD-01\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP07",
+   "iteration": "Sprint 3",
+   "member": "BE-Hùng",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T036",
+   "kind": "issue",
+   "title": "[T036] SCR-061 tablet UI ghi giao hàng + ngoại lệ + ảnh",
+   "body": "**Epic:** #7 EP07 Giao hàng & offline\n\n**Spec LAB-4:** SCR-061.md\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 18h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #50 (T034)\n\n**Định nghĩa xong (DoD):**\n- [ ] Mặc định số = còn lại\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP07",
+   "iteration": "Sprint 3",
+   "member": "FE-Quân",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T037",
+   "kind": "issue",
+   "title": "[T037] SCR-060 bảng giao hàng (tồn đọng, ngoại lệ)",
+   "body": "**Epic:** #7 EP07 Giao hàng & offline\n\n**Spec LAB-4:** FT-06-06\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 12h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #50 (T034)\n\n**Định nghĩa xong (DoD):**\n- [ ] Lọc theo trạng thái\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP07",
+   "iteration": "Sprint 3",
+   "member": "FE-Mai",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T038",
+   "kind": "issue",
+   "title": "[T038] PWA: service worker + hàng đợi IndexedDB cho SCR-030/061 (ADR-007)",
+   "body": "**Epic:** #7 EP07 Giao hàng & offline\n\n**Spec LAB-4:** ADR-007\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 30h · **Iteration:** Sprint 4\n\n**Phụ thuộc:** #37 (T021), #52 (T036)\n\n**Định nghĩa xong (DoD):**\n- [ ] Tắt mạng 30', 50 thao tác không mất\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP07",
+   "iteration": "Sprint 4",
+   "member": "FE-Mai",
+   "hours": 30,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T039",
+   "kind": "issue",
+   "title": "[T039] SYN-01 + sync_submissions + phát hiện xung đột (DD-09)",
+   "body": "**Epic:** #7 EP07 Giao hàng & offline\n\n**Spec LAB-4:** DD-09\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 20h · **Iteration:** Sprint 4\n\n**Phụ thuộc:** #54 (T038)\n\n**Định nghĩa xong (DoD):**\n- [ ] Gửi lại cùng uuid không trùng\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP07",
+   "iteration": "Sprint 4",
+   "member": "BE-Linh",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T040",
+   "kind": "issue",
+   "title": "[T040] SCR-160 màn hình giải quyết xung đột",
+   "body": "**Epic:** #7 EP07 Giao hàng & offline\n\n**Spec LAB-4:** DD-09\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 12h · **Iteration:** Sprint 4\n\n**Phụ thuộc:** #55 (T039)\n\n**Định nghĩa xong (DoD):**\n- [ ] Không có tự động hợp nhất\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP07",
+   "iteration": "Sprint 4",
+   "member": "FE-Mai",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T041",
+   "kind": "issue",
+   "title": "[T041] Diễn tập ngắt Wi-Fi tại chợ (chuẩn bị UAT)",
+   "body": "**Epic:** #7 EP07 Giao hàng & offline\n\n**Spec LAB-4:** R-12\n\n**Người phụ trách (giả định):** QA-Tú · **Ước lượng:** 8h · **Iteration:** chưa xếp\n\n**Phụ thuộc:** #56 (T040)\n\n**Định nghĩa xong (DoD):**\n- [ ] Biên bản diễn tập\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:test"
+   ],
+   "parent": "EP07",
+   "iteration": null,
+   "member": "QA-Tú",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T042",
+   "kind": "issue",
+   "title": "[T042] business_days SM-06 + fn_lock_business_day (DD-05)",
+   "body": "**Epic:** #8 EP08 Đối chiếu & khóa ngày\n\n**Spec LAB-4:** DD-05\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 12h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #40 (T024)\n\n**Định nghĩa xong (DoD):**\n- [ ] Còn せり 確認待ち → E-STL-01\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "gap-from-prototype"
+   ],
+   "parent": "EP08",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP08 Đối chiếu & khóa ngày",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T043",
+   "kind": "issue",
+   "title": "[T043] Xin mở lại ngày / duyệt / 公開 (STL-03/04/06, GAP-11)",
+   "body": "**Epic:** #8 EP08 Đối chiếu & khóa ngày\n\n**Spec LAB-4:** SM-06\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 12h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #58 (T042)\n\n**Định nghĩa xong (DoD):**\n- [ ] Người xin ≠ người duyệt\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP08",
+   "iteration": "Sprint 3",
+   "member": "BE-Linh",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP08 Đối chiếu & khóa ngày",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T044",
+   "kind": "issue",
+   "title": "[T044] SCR-070/072 UI đối chiếu + checklist khóa",
+   "body": "**Epic:** #8 EP08 Đối chiếu & khóa ngày\n\n**Spec LAB-4:** SCR-070-072.md\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 18h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #58 (T042)\n\n**Định nghĩa xong (DoD):**\n- [ ] Check chặn vs cảnh báo đúng spec\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP08",
+   "iteration": "Sprint 3",
+   "member": "FE-Mai",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP08 Đối chiếu & khóa ngày",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T045",
+   "kind": "issue",
+   "title": "[T045] market_calendar + SCR-150 (GAP-14)",
+   "body": "**Epic:** #8 EP08 Đối chiếu & khóa ngày\n\n**Spec LAB-4:** ADR-005\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 10h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #41 (T025)\n\n**Định nghĩa xong (DoD):**\n- [ ] Ngày nghỉ → E-TRD-01\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP08",
+   "iteration": "Sprint 3",
+   "member": "BE-Hùng",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP08 Đối chiếu & khóa ngày",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T046",
+   "kind": "issue",
+   "title": "[T046] Tranh chấp SCR-071 (STL-05)",
+   "body": "**Epic:** #8 EP08 Đối chiếu & khóa ngày\n\n**Spec LAB-4:** FR-SETTLE-03\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 12h · **Iteration:** chưa xếp\n\n**Phụ thuộc:** #58 (T042)\n\n**Định nghĩa xong (DoD):**\n- [ ] Trạng thái, người phụ trách, hạn\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP08",
+   "iteration": null,
+   "member": "BE-Hùng",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP08 Đối chiếu & khóa ngày",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T047",
+   "kind": "issue",
+   "title": "[T047] fn_approve_correction: 赤黒 vào trade_entries, sửa nhiều lần (DD-06, GAP-01/16)",
+   "body": "**Epic:** #9 EP09 Sửa sau xác nhận 赤黒\n\n**Spec LAB-4:** DD-06, ADR-004\n\n**Người phụ trách (giả định):** BE-Nam · **Ước lượng:** 20h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #40 (T024)\n\n**Định nghĩa xong (DoD):**\n- [ ] 1 trade_code duy nhất\n- [ ] Ngày gốc không đổi\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:red-black"
+   ],
+   "parent": "EP09",
+   "iteration": "Sprint 2",
+   "member": "BE-Nam",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP09 Sửa sau xác nhận 赤黒",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T048",
+   "kind": "issue",
+   "title": "[T048] COR-06 preview (dry-run)",
+   "body": "**Epic:** #9 EP09 Sửa sau xác nhận 赤黒\n\n**Spec LAB-4:** DD-06\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 8h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #63 (T047)\n\n**Định nghĩa xong (DoD):**\n- [ ] Preview = kết quả thật\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:red-black"
+   ],
+   "parent": "EP09",
+   "iteration": "Sprint 3",
+   "member": "BE-Hùng",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP09 Sửa sau xác nhận 赤黒",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T049",
+   "kind": "issue",
+   "title": "[T049] Đính kèm S3 presigned (ATT-01/02) + bắt buộc chứng cứ (GAP-06)",
+   "body": "**Epic:** #9 EP09 Sửa sau xác nhận 赤黒\n\n**Spec LAB-4:** D.4, E-COR-01\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 12h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #17 (T001)\n\n**Định nghĩa xong (DoD):**\n- [ ] Ảnh hưởng quyết toán + không file → 409\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:red-black"
+   ],
+   "parent": "EP09",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP09 Sửa sau xác nhận 赤黒",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T050",
+   "kind": "issue",
+   "title": "[T050] SCR-081/082 UI (so sánh trước/sau, preview bút toán)",
+   "body": "**Epic:** #9 EP09 Sửa sau xác nhận 赤黒\n\n**Spec LAB-4:** SCR-081-082.md\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 18h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #64 (T048)\n\n**Định nghĩa xong (DoD):**\n- [ ] Người tạo không thấy nút duyệt\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:red-black"
+   ],
+   "parent": "EP09",
+   "iteration": "Sprint 3",
+   "member": "FE-Quân",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP09 Sửa sau xác nhận 赤黒",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T051",
+   "kind": "issue",
+   "title": "[T051] Chuyển 5 API đọc sang trade_entries (settlement, reports, deliveries, incentives, trades) — đã ước lượng lại 5→8 SP sau Sprint 1 (R-3)",
+   "body": "**Epic:** #9 EP09 Sửa sau xác nhận 赤黒\n\n**Spec LAB-4:** ADR-004 Hệ quả\n\n**Người phụ trách (giả định):** BE-Nam · **Ước lượng:** 28h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #40 (T024)\n\n**Định nghĩa xong (DoD):**\n- [ ] Số liệu đối chiếu giữ nguyên trên dữ liệu seed\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "constraint:red-black",
+    "constraint:red-black",
+    "gap-from-prototype"
+   ],
+   "parent": "EP09",
+   "iteration": "Sprint 2",
+   "member": "BE-Nam",
+   "hours": 28,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP09 Sửa sau xác nhận 赤黒",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T052",
+   "kind": "issue",
+   "title": "[T052] [INC-1] incentive_periods: khóa kỳ + chọn chế độ 本計算/再計算/次期差分 (DD-07 b1)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-07, BR-09, A4-06\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 10h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #69 (T053)\n\n**Định nghĩa xong (DoD):**\n- [ ] Chạy song song 2 lần → 1 kết quả\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T053",
+   "kind": "issue",
+   "title": "[T053] [INC-2] fn_resolve_rate theo ngày cuối kỳ (DD-07 b2 / DD-08)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-08\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 6h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #19 (T003)\n\n**Định nghĩa xong (DoD):**\n- [ ] Bản ロールバック không bao giờ được chọn\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 1",
+   "member": "BE-Linh",
+   "hours": 6,
+   "actual": 6,
+   "status": "Done",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T054",
+   "kind": "issue",
+   "title": "[T054] [INC-3] Tính hạn thanh toán: cuối kỳ + N ngày, tính cả ngày hạn, không dời ngày nghỉ",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-07 b3, Q-08\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 4h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] T3 (trả đúng 11/10) → đủ điều kiện\n- [ ] T4 (11/11) → 0\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 1",
+   "member": "BE-Linh",
+   "hours": 4,
+   "actual": 4,
+   "status": "Done",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T055",
+   "kind": "issue",
+   "title": "[T055] [INC-4] Tổng 適格金額 từ trade_entries, loại 卸売業者, gồm 赤黒 (DD-07 b4)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-07 b4, A4-05\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 10h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #40 (T024), #67 (T051)\n\n**Định nghĩa xong (DoD):**\n- [ ] T12 (âm) → 0\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T056",
+   "kind": "issue",
+   "title": "[T056] [INC-5] Đối chiếu 請求額 / đã trả trong hạn từ payment_lines (DD-07 b5)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-07 b5, A4-04\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 8h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #75 (T059)\n\n**Định nghĩa xong (DoD):**\n- [ ] Thiếu dữ liệu → 未取込\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T057",
+   "kind": "issue",
+   "title": "[T057] [INC-6] fn_incentive_amount + 12 test vector (INC-EDGE-01〜03)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-07 b6, FS-07, BR-08\n\n**Người phụ trách (giả định):** BE-Nam · **Ước lượng:** 8h · **Iteration:** Sprint 1\n\n**Phụ thuộc:** #19 (T003)\n\n**Định nghĩa xong (DoD):**\n- [ ] 12/12 test vector pass trong CI\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 1",
+   "member": "BE-Nam",
+   "hours": 8,
+   "actual": 7,
+   "status": "Done",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T058",
+   "kind": "issue",
+   "title": "[T058] [INC-7] Ghi 本計算/次期差分 + audit (DD-07 b7)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-07 b7, BR-09\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 12h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #68 (T052), #71 (T055), #72 (T056), #73 (T057)\n\n**Định nghĩa xong (DoD):**\n- [ ] T9 → 次期差分 −159 ở kỳ sau\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T059",
+   "kind": "issue",
+   "title": "[T059] [INC-8] Import CSV công nợ/thanh toán, all-or-nothing, lỗi từng dòng (INC-01)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** ADR-009, API 5.7\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 18h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #81 (T065)\n\n**Định nghĩa xong (DoD):**\n- [ ] File có 1 dòng lỗi → không nhận dòng nào\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T060",
+   "kind": "issue",
+   "title": "[T060] [INC-9] Sửa tay dòng thanh toán có lý do (SCR-090)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** SCR-090\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 8h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #75 (T059)\n\n**Định nghĩa xong (DoD):**\n- [ ] Bắt buộc lý do + audit\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 3",
+   "member": "FE-Mai",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T061",
+   "kind": "issue",
+   "title": "[T061] [INC-10] API INC-02/03/04 (chạy, xem, chốt kỳ)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** API 5.8\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 8h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #74 (T058)\n\n**Định nghĩa xong (DoD):**\n- [ ] Chốt kỳ: người ≠ người chạy\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 2",
+   "member": "BE-Hùng",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T062",
+   "kind": "issue",
+   "title": "[T062] [INC-11] SCR-091 UI: bản料率 áp dụng, lý do 0円, 次期差分",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** SCR-091.md\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 16h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #77 (T061)\n\n**Định nghĩa xong (DoD):**\n- [ ] Mỗi dòng 0円 có lý do\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 3",
+   "member": "FE-Quân",
+   "hours": 16,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T063",
+   "kind": "issue",
+   "title": "[T063] [INC-12] RPT-07 / FORM-INC-01 xuất CSV",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** TBL-REPORT-01\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 8h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #77 (T061)\n\n**Định nghĩa xong (DoD):**\n- [ ] Khớp màn hình\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 3",
+   "member": "BE-Linh",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T064",
+   "kind": "issue",
+   "title": "[T064] [INC-13] Test tích hợp: 赤黒 sau chốt kỳ (T9), đổi料率 giữa kỳ (T10), thiếu dữ liệu (T11)",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-07 test vectors\n\n**Người phụ trách (giả định):** QA-Tú · **Ước lượng:** 12h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #74 (T058), #82 (T066)\n\n**Định nghĩa xong (DoD):**\n- [ ] Kết quả khớp bảng DD-07\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:test",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 3",
+   "member": "QA-Tú",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T065",
+   "kind": "issue",
+   "title": "[T065] [INC-14] Khách xác nhận Q-06/07/08/29/30 + ký test vector",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** QA-List\n\n**Người phụ trách (giả định):** BrSE-An · **Ước lượng:** 4h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] Biên bản trả lời\n- [ ] Test vector có xác nhận của khách\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:question",
+    "constraint:incentive",
+    "blocked"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 1",
+   "member": "BrSE-An",
+   "hours": 4,
+   "actual": 2,
+   "status": "Blocked",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T066",
+   "kind": "issue",
+   "title": "[T066] rate_versions: trạng thái SM-09, số bản qua fn_next_code (GAP-09)",
+   "body": "**Epic:** #11 EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)\n\n**Spec LAB-4:** SM-09\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 8h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #34 (T018)\n\n**Định nghĩa xong (DoD):**\n- [ ] 6 trạng thái\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "constraint:rate-governance",
+    "gap-from-prototype"
+   ],
+   "parent": "EP11",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T067",
+   "kind": "issue",
+   "title": "[T067] fn_rate_decide: maker≠checker + tối đa 4 lần/năm tài chính (A4-07)",
+   "body": "**Epic:** #11 EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)\n\n**Spec LAB-4:** DD-08, BR-10, Q-32\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 10h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #82 (T066)\n\n**Định nghĩa xong (DoD):**\n- [ ] Lần thứ 5 trong năm → E-RAT-02\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:rate-governance"
+   ],
+   "parent": "EP11",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T068",
+   "kind": "issue",
+   "title": "[T068] Rollback + bản trước tự có hiệu lực + danh sách kỳ bị ảnh hưởng",
+   "body": "**Epic:** #11 EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)\n\n**Spec LAB-4:** DD-08\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 8h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #83 (T067)\n\n**Định nghĩa xong (DoD):**\n- [ ] Không tính lại kỳ đã chốt\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:rate-governance"
+   ],
+   "parent": "EP11",
+   "iteration": "Sprint 3",
+   "member": "BE-Linh",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T069",
+   "kind": "issue",
+   "title": "[T069] BAT-05 02:00 kích hoạt bản 発効予定",
+   "body": "**Epic:** #11 EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)\n\n**Spec LAB-4:** SM-09\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 6h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #83 (T067)\n\n**Định nghĩa xong (DoD):**\n- [ ] Idempotent\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:rate-governance"
+   ],
+   "parent": "EP11",
+   "iteration": "Sprint 3",
+   "member": "BE-Linh",
+   "hours": 6,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T070",
+   "kind": "issue",
+   "title": "[T070] SCR-100〜102 UI (bộ đếm 3/4, so sánh bản trước)",
+   "body": "**Epic:** #11 EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)\n\n**Spec LAB-4:** SCR-101-102.md\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 16h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #83 (T067)\n\n**Định nghĩa xong (DoD):**\n- [ ] Cảnh báo khi đạt 4/4\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature",
+    "constraint:rate-governance"
+   ],
+   "parent": "EP11",
+   "iteration": "Sprint 3",
+   "member": "FE-Quân",
+   "hours": 16,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T071",
+   "kind": "issue",
+   "title": "[T071] BAT-01: RPT-01〜05 báo cáo ngày",
+   "body": "**Epic:** #12 EP12 Báo cáo & 会計連携 IF-ACC-01\n\n**Spec LAB-4:** TBL-REPORT-01\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 20h · **Iteration:** Sprint 4\n\n**Phụ thuộc:** #58 (T042)\n\n**Định nghĩa xong (DoD):**\n- [ ] Xong < 11:00 với tải FIG-LOAD-01\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP12",
+   "iteration": "Sprint 4",
+   "member": "BE-Linh",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T072",
+   "kind": "issue",
+   "title": "[T072] BAT-01: RPT-06〜09",
+   "body": "**Epic:** #12 EP12 Báo cáo & 会計連携 IF-ACC-01\n\n**Spec LAB-4:** TBL-REPORT-01\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 20h · **Iteration:** Sprint 4\n\n**Phụ thuộc:** #87 (T071)\n\n**Định nghĩa xong (DoD):**\n- [ ] RPT-08 có mọi bút toán sau khóa\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP12",
+   "iteration": "Sprint 4",
+   "member": "BE-Linh",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T073",
+   "kind": "issue",
+   "title": "[T073] RPT-10〜12 báo cáo tháng",
+   "body": "**Epic:** #12 EP12 Báo cáo & 会計連携 IF-ACC-01\n\n**Spec LAB-4:** FR-RPT-02\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 12h · **Iteration:** Sprint 5\n\n**Phụ thuộc:** #87 (T071)\n\n**Định nghĩa xong (DoD):**\n- [ ] Khớp đối chiếu ngày\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP12",
+   "iteration": "Sprint 5",
+   "member": "BE-Linh",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T074",
+   "kind": "issue",
+   "title": "[T074] BAT-02 IF-ACC-01: acc_export_batches, SFTP, thử lại 3 lần (GAP-13)",
+   "body": "**Epic:** #12 EP12 Báo cáo & 会計連携 IF-ACC-01\n\n**Spec LAB-4:** ADR-009\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 18h · **Iteration:** Sprint 4\n\n**Phụ thuộc:** #58 (T042)\n\n**Định nghĩa xong (DoD):**\n- [ ] Gửi lại tạo batch code mới\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP12",
+   "iteration": "Sprint 4",
+   "member": "BE-Hùng",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T075",
+   "kind": "issue",
+   "title": "[T075] SCR-120/130 xuất báo cáo, lịch sử IF-ACC",
+   "body": "**Epic:** #12 EP12 Báo cáo & 会計連携 IF-ACC-01\n\n**Spec LAB-4:** Screen List\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 12h · **Iteration:** Sprint 4\n\n**Phụ thuộc:** #90 (T074)\n\n**Định nghĩa xong (DoD):**\n- [ ] Gửi lại cần duyệt\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP12",
+   "iteration": "Sprint 4",
+   "member": "FE-Mai",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T076",
+   "kind": "issue",
+   "title": "[T076] PRT-01〜04 PDF theo mẫu khách",
+   "body": "**Epic:** #12 EP12 Báo cáo & 会計連携 IF-ACC-01\n\n**Spec LAB-4:** Q-21\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 18h · **Iteration:** chưa xếp\n\n**Định nghĩa xong (DoD):**\n- [ ] Mẫu được khách duyệt\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP12",
+   "iteration": null,
+   "member": "FE-Mai",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T077",
+   "kind": "issue",
+   "title": "[T077] notifications outbox + BAT-04 gửi SES, thử 3 lần (ADR-011)",
+   "body": "**Epic:** #13 EP13 Thông báo · batch · vận hành\n\n**Spec LAB-4:** ADR-011\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 18h · **Iteration:** Sprint 4\n\n**Phụ thuộc:** #17 (T001)\n\n**Định nghĩa xong (DoD):**\n- [ ] Critical ≤ 5 phút\n- [ ] 最終失敗 → alarm\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP13",
+   "iteration": "Sprint 4",
+   "member": "BE-Hùng",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP13 Thông báo · batch · vận hành",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T078",
+   "kind": "issue",
+   "title": "[T078] SCR-004/110/111 thông báo, cài đặt, log gửi",
+   "body": "**Epic:** #13 EP13 Thông báo · batch · vận hành\n\n**Spec LAB-4:** FR-NOTIFY-03\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 12h · **Iteration:** Sprint 5\n\n**Phụ thuộc:** #93 (T077)\n\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP13",
+   "iteration": "Sprint 5",
+   "member": "FE-Mai",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP13 Thông báo · batch · vận hành",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T079",
+   "kind": "issue",
+   "title": "[T079] job_runs + SCR-170 trạng thái batch",
+   "body": "**Epic:** #13 EP13 Thông báo · batch · vận hành\n\n**Spec LAB-4:** FT-17-03\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 8h · **Iteration:** Sprint 5\n\n**Phụ thuộc:** #87 (T071)\n\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP13",
+   "iteration": "Sprint 5",
+   "member": "BE-Linh",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP13 Thông báo · batch · vận hành",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T080",
+   "kind": "issue",
+   "title": "[T080] fn_audit trong cùng transaction cho mọi hàm ghi + business_day, actor_email (GAP-04)",
+   "body": "**Epic:** #14 EP14 Audit · master · lưu trữ\n\n**Spec LAB-4:** ADR-003, BR-13\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 10h · **Iteration:** Sprint 2\n\n**Phụ thuộc:** #19 (T003)\n\n**Định nghĩa xong (DoD):**\n- [ ] Không còn audit gọi riêng ở API route\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:refactor",
+    "gap-from-prototype"
+   ],
+   "parent": "EP14",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP14 Audit · master · lưu trữ",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T081",
+   "kind": "issue",
+   "title": "[T081] SCR-140/141 tìm audit p95 ≤ 2s + log PII_READ",
+   "body": "**Epic:** #14 EP14 Audit · master · lưu trữ\n\n**Spec LAB-4:** FR-AUDIT-02\n\n**Người phụ trách (giả định):** FE-Mai · **Ước lượng:** 12h · **Iteration:** Sprint 3\n\n**Phụ thuộc:** #96 (T080)\n\n**Định nghĩa xong (DoD):**\n- [ ] p95 đo trên 7 năm dữ liệu giả lập\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP14",
+   "iteration": "Sprint 3",
+   "member": "FE-Mai",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP14 Audit · master · lưu trữ",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T082",
+   "kind": "issue",
+   "title": "[T082] Partition năm + S3 lifecycle + BAT-06",
+   "body": "**Epic:** #14 EP14 Audit · master · lưu trữ\n\n**Spec LAB-4:** DB §5\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 12h · **Iteration:** Sprint 5\n\n**Phụ thuộc:** #17 (T001)\n\n**Định nghĩa xong (DoD):**\n- [ ] Ảnh > 3 năm sang Glacier\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:infra"
+   ],
+   "parent": "EP14",
+   "iteration": "Sprint 5",
+   "member": "BE-Hùng",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP14 Audit · master · lưu trữ",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T083",
+   "kind": "issue",
+   "title": "[T083] Master 品目/荷主 SCR-151/152",
+   "body": "**Epic:** #14 EP14 Audit · master · lưu trữ\n\n**Spec LAB-4:** Screen List\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 8h · **Iteration:** Sprint 1\n\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP14",
+   "iteration": "Sprint 1",
+   "member": "FE-Quân",
+   "hours": 8,
+   "actual": 9,
+   "status": "Done",
+   "epic": "EP14 Audit · master · lưu trữ",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T084",
+   "kind": "issue",
+   "title": "[T084] Profiling dữ liệu Excel của khách (C.4: mã lệch, trùng, thiếu)",
+   "body": "**Epic:** #15 EP15 Migration dữ liệu\n\n**Spec LAB-4:** MIG-01〜02\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 20h · **Iteration:** Sprint 4\n\n**Định nghĩa xong (DoD):**\n- [ ] Báo cáo dữ liệu bẩn\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:migration"
+   ],
+   "parent": "EP15",
+   "iteration": "Sprint 4",
+   "member": "BE-Hùng",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP15 Migration dữ liệu",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T085",
+   "kind": "issue",
+   "title": "[T085] Wave 1: người tham gia, tư cách, tài khoản",
+   "body": "**Epic:** #15 EP15 Migration dữ liệu\n\n**Spec LAB-4:** MIG-03\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 20h · **Iteration:** Sprint 5\n\n**Phụ thuộc:** #100 (T084)\n\n**Định nghĩa xong (DoD):**\n- [ ] Đối chiếu số dòng\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:migration"
+   ],
+   "parent": "EP15",
+   "iteration": "Sprint 5",
+   "member": "BE-Hùng",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP15 Migration dữ liệu",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T086",
+   "kind": "issue",
+   "title": "[T086] Wave 2: lô/giao dịch 13 tháng (Q-15) — tách tiếp khi có dữ liệu",
+   "body": "**Epic:** #15 EP15 Migration dữ liệu\n\n**Spec LAB-4:** MIG-03\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 30h · **Iteration:** Sprint 5\n\n**Phụ thuộc:** #101 (T085)\n\n**Định nghĩa xong (DoD):**\n- [ ] Đối chiếu số dòng + tổng tiền\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:migration"
+   ],
+   "parent": "EP15",
+   "iteration": "Sprint 5",
+   "member": "BE-Linh",
+   "hours": 30,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP15 Migration dữ liệu",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T087",
+   "kind": "issue",
+   "title": "[T087] Wave 3: giao hàng chưa xong, số dư 奨励金 giữa kỳ",
+   "body": "**Epic:** #15 EP15 Migration dữ liệu\n\n**Spec LAB-4:** MIG-03\n\n**Người phụ trách (giả định):** BE-Hùng · **Ước lượng:** 20h · **Iteration:** Sprint 5\n\n**Phụ thuộc:** #102 (T086)\n\n**Định nghĩa xong (DoD):**\n- [ ] Sign-off ACC-04\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:migration"
+   ],
+   "parent": "EP15",
+   "iteration": "Sprint 5",
+   "member": "BE-Hùng",
+   "hours": 20,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP15 Migration dữ liệu",
+   "close": false,
+   "swp": null
+  },
+  {
+   "key": "T088",
+   "kind": "issue",
+   "title": "[T088] Gửi Q-26〜Q-33 cho khách, cập nhật PREMISE/ADR theo trả lời",
+   "body": "**Epic:** #16 EP16 Quản lý & xác nhận với khách\n\n**Spec LAB-4:** QA-List, CR\n\n**Người phụ trách (giả định):** BrSE-An · **Ước lượng:** 6h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] Gửi trước 11/18\n- [ ] Cập nhật ADR-004 khi có Q-26\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:question"
+   ],
+   "parent": "EP16",
+   "iteration": "Sprint 1",
+   "member": "BrSE-An",
+   "hours": 6,
+   "actual": 6,
+   "status": "Done",
+   "epic": "EP16 Quản lý & xác nhận với khách",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T089",
+   "kind": "issue",
+   "title": "[T089] Chạy SQL DB §6.4 trên Supabase xác nhận schema thật",
+   "body": "**Epic:** #16 EP16 Quản lý & xác nhận với khách\n\n**Spec LAB-4:** DB §6.4\n\n**Người phụ trách (giả định):** BE-Linh · **Ước lượng:** 2h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] Không có cột ngoài DDL\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:test"
+   ],
+   "parent": "EP16",
+   "iteration": "Sprint 1",
+   "member": "BE-Linh",
+   "hours": 2,
+   "actual": 2,
+   "status": "Done",
+   "epic": "EP16 Quản lý & xác nhận với khách",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T090",
+   "kind": "issue",
+   "title": "[T090] Review checklist AI-report §4.2 của LAB-4",
+   "body": "**Epic:** #16 EP16 Quản lý & xác nhận với khách\n\n**Spec LAB-4:** LAB-4 AI-report\n\n**Người phụ trách (giả định):** BrSE-An · **Ước lượng:** 3h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] 7 mục có kết luận\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:question"
+   ],
+   "parent": "EP16",
+   "iteration": "Sprint 1",
+   "member": "BrSE-An",
+   "hours": 3,
+   "actual": 3,
+   "status": "Done",
+   "epic": "EP16 Quản lý & xác nhận với khách",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T091",
+   "kind": "issue",
+   "title": "[T091] Test viewpoint + testcase SCR-040 / TRD-02 (template Sun* Testcase)",
+   "body": "**Epic:** #5 EP05 相対取引 (luồng chính)\n\n**Spec LAB-4:** SCR-040.md, Business Rules §4\n\n**Người phụ trách (giả định):** QA-Tú · **Ước lượng:** 12h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] Phủ 8 điều kiện bảng quyết định\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:test",
+    "constraint:aitai-seri"
+   ],
+   "parent": "EP05",
+   "iteration": "Sprint 1",
+   "member": "QA-Tú",
+   "hours": 12,
+   "actual": 12,
+   "status": "Done",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T092",
+   "kind": "issue",
+   "title": "[T092] Dữ liệu test 12 vector 奨励金 + seed dùng chung BE/QA",
+   "body": "**Epic:** #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng\n\n**Spec LAB-4:** DD-07 test vectors\n\n**Người phụ trách (giả định):** QA-Tú · **Ước lượng:** 8h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] Seed chạy lặp lại được\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:test",
+    "constraint:incentive"
+   ],
+   "parent": "EP10",
+   "iteration": "Sprint 1",
+   "member": "QA-Tú",
+   "hours": 8,
+   "actual": 8,
+   "status": "Done",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T093",
+   "kind": "issue",
+   "title": "[T093] Thư viện component theo wireframe (bảng, ô số, tile tablet, badge trạng thái)",
+   "body": "**Epic:** #1 EP01 Nền tảng & hạ tầng production\n\n**Spec LAB-4:** 03_Design-UIUX\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 20h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] Dùng lại ở SCR-030/040/061\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP01",
+   "iteration": "Sprint 1",
+   "member": "FE-Quân",
+   "hours": 20,
+   "actual": 20,
+   "status": "Done",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T094",
+   "kind": "issue",
+   "title": "[T094] Layout chung CS-01〜CS-10: header ngày nghiệp vụ JST, xử lý 400/409, phím tắt",
+   "body": "**Epic:** #1 EP01 Nền tảng & hạ tầng production\n\n**Spec LAB-4:** Screen List §3\n\n**Người phụ trách (giả định):** FE-Quân · **Ước lượng:** 12h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] 409 hiện message theo error_code\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:feature"
+   ],
+   "parent": "EP01",
+   "iteration": "Sprint 1",
+   "member": "FE-Quân",
+   "hours": 12,
+   "actual": 12,
+   "status": "Done",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T095",
+   "kind": "issue",
+   "title": "[T095] Test plan + test viewpoint toàn dự án (template Sun*)",
+   "body": "**Epic:** #16 EP16 Quản lý & xác nhận với khách\n\n**Spec LAB-4:** Template Test Viewpoint\n\n**Người phụ trách (giả định):** QA-Tú · **Ước lượng:** 20h · **Iteration:** Sprint 1\n\n**Định nghĩa xong (DoD):**\n- [ ] Được BrSE review\n- [ ] Code review + test tự động pass\n\n_SWP: chấm bằng skill, xem estimate.md_",
+   "labels": [
+    "type:test"
+   ],
+   "parent": "EP16",
+   "iteration": "Sprint 1",
+   "member": "QA-Tú",
+   "hours": 20,
+   "actual": 22,
+   "status": "Done",
+   "epic": "EP16 Quản lý & xác nhận với khách",
+   "close": true,
+   "swp": null
+  },
+  {
+   "key": "T001-1",
+   "kind": "sub",
+   "title": "[T001-1] VPC, subnet 2 AZ, security group",
+   "body": "Sub-issue của #17 (T001). Ước lượng 10h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T001",
+   "iteration": "Sprint 1",
+   "member": "BE-Hùng",
+   "hours": 10,
+   "actual": null,
+   "status": "Done",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": true
+  },
+  {
+   "key": "T001-2",
+   "kind": "sub",
+   "title": "[T001-2] ECS cluster + ALB + CloudFront/WAF",
+   "body": "Sub-issue của #17 (T001). Ước lượng 12h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T001",
+   "iteration": "Sprint 1",
+   "member": "BE-Hùng",
+   "hours": 12,
+   "actual": null,
+   "status": "Done",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": true
+  },
+  {
+   "key": "T001-3",
+   "kind": "sub",
+   "title": "[T001-3] RDS Multi-AZ + S3 (KMS) + Secrets Manager",
+   "body": "Sub-issue của #17 (T001). Ước lượng 10h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T001",
+   "iteration": "Sprint 1",
+   "member": "BE-Hùng",
+   "hours": 10,
+   "actual": null,
+   "status": "In Progress",
+   "epic": "EP01 Nền tảng & hạ tầng production",
+   "close": false
+  },
+  {
+   "key": "T025-1",
+   "kind": "sub",
+   "title": "[T025-1] Hàm DB fn_aitai_create_confirm + khóa dòng lô",
+   "body": "Sub-issue của #41 (T025). Ước lượng 12h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T025",
+   "iteration": "Sprint 1",
+   "member": "BE-Nam",
+   "hours": 12,
+   "actual": null,
+   "status": "Done",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": true
+  },
+  {
+   "key": "T025-2",
+   "kind": "sub",
+   "title": "[T025-2] Idempotency qua sync_submissions",
+   "body": "Sub-issue của #41 (T025). Ước lượng 8h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T025",
+   "iteration": "Sprint 1",
+   "member": "BE-Nam",
+   "hours": 8,
+   "actual": null,
+   "status": "Done",
+   "epic": "EP05 相対取引 (luồng chính)",
+   "close": true
+  },
+  {
+   "key": "T038-1",
+   "kind": "sub",
+   "title": "[T038-1] Service worker + cache master offline",
+   "body": "Sub-issue của #54 (T038). Ước lượng 12h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T038",
+   "iteration": "Sprint 4",
+   "member": "FE-Mai",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false
+  },
+  {
+   "key": "T038-2",
+   "kind": "sub",
+   "title": "[T038-2] Hàng đợi IndexedDB + giới hạn 30 phút / 50 thao tác",
+   "body": "Sub-issue của #54 (T038). Ước lượng 18h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T038",
+   "iteration": "Sprint 4",
+   "member": "FE-Mai",
+   "hours": 18,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP07 Giao hàng & offline",
+   "close": false
+  },
+  {
+   "key": "T059-1",
+   "kind": "sub",
+   "title": "[T059-1] Parser CSV (UTF-8 BOM / Shift_JIS) + validate từng dòng",
+   "body": "Sub-issue của #75 (T059). Ước lượng 10h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T059",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false
+  },
+  {
+   "key": "T059-2",
+   "kind": "sub",
+   "title": "[T059-2] Ghi all-or-nothing + trả lỗi theo dòng",
+   "body": "Sub-issue của #75 (T059). Ước lượng 8h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T059",
+   "iteration": "Sprint 2",
+   "member": "BE-Linh",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
+   "close": false
+  },
+  {
+   "key": "T086-1",
+   "kind": "sub",
+   "title": "[T086-1] Mapping + nạp lô 13 tháng",
+   "body": "Sub-issue của #102 (T086). Ước lượng 12h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T086",
+   "iteration": "Sprint 5",
+   "member": "BE-Linh",
+   "hours": 12,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP15 Migration dữ liệu",
+   "close": false
+  },
+  {
+   "key": "T086-2",
+   "kind": "sub",
+   "title": "[T086-2] Mapping giao dịch + sinh bút toán 原始",
+   "body": "Sub-issue của #102 (T086). Ước lượng 10h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T086",
+   "iteration": "Sprint 5",
+   "member": "BE-Linh",
+   "hours": 10,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP15 Migration dữ liệu",
+   "close": false
+  },
+  {
+   "key": "T086-3",
+   "kind": "sub",
+   "title": "[T086-3] Đối chiếu số dòng / tổng tiền, biên bản",
+   "body": "Sub-issue của #102 (T086). Ước lượng 8h. SWP tính ở issue cha.",
+   "labels": [
+    "type:sub-task"
+   ],
+   "parent": "T086",
+   "iteration": "Sprint 5",
+   "member": "BE-Linh",
+   "hours": 8,
+   "actual": null,
+   "status": "Todo",
+   "epic": "EP15 Migration dữ liệu",
+   "close": false
+  }
+ ]
+}
