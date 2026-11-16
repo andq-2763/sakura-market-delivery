@@ -1,6 +1,6 @@
 # Estimate — SWP (skill chấm) + giờ ước lượng
 
-Báo cáo HTML của skill chấm SWP: `swp-report/<file>.html` — ⏳ chưa có (chạy skill theo §0)
+Báo cáo HTML của skill chấm SWP: [`swp-report/sun-estimate-andq-2763-project-1-20261116.html`](swp-report/sun-estimate-andq-2763-project-1-20261116.html)
 
 ## 0. Quy trình chấm
 
@@ -11,22 +11,22 @@ Báo cáo HTML của skill chấm SWP: `swp-report/<file>.html` — ⏳ chưa c�
 
 ## 1. Issue mẫu đã kiểm skill
 
-Mẫu chọn để phủ đủ các loại: việc nhỏ thuần logic (T054), hàm có nhiều ca (T012, T057), giao dịch đồng thời (T025), import phụ thuộc khách (T059), hạ tầng (T001), màn hình (T027), câu hỏi khách (T065), refactor mô hình dữ liệu (T024), quy tắc quản trị (T067).
+Skill `tkm:sun-estimate` (Takumi Extras v1.1.0) tự chọn 5 issue mẫu theo quy tắc cố định: thấp nhất (#81 T065), dưới trung vị (#95 T079), cao nhất (#40 T024), bất thường (#19 T003), độ tin cậy thấp nhất (#104 T088). Mỗi issue duyệt 2 vòng: chọn mức khó → chọn điểm SWP cụ thể.
+
+- Kết quả: **sửa 1/5** (T065: 1 → 3 SWP), giữ 4/5.
+- Hiệu chỉnh lan truyền: skill tạo quy tắc `cal-001` (Scope +1 bậc cho nhóm documentation/routine/single-component) nhưng **không có issue nào khác cùng nhóm**, nên chỉ T065 đổi. Tổng backlog: skill 456 → chốt **458 SWP**.
+- 97 issue còn lại (102 issue skill chấm trực tiếp, gồm sub-issue) giữ điểm skill; lý do từng issue (rationale của skill) ghi ở cột `reason` trong `data/swp.csv`.
+- Điểm yếu của lần chấm: body issue chỉ có spec ref + DoD nên phần lớn ở mức INFERRED/medium; dòng "Ước lượng: N h" bị skill loại khỏi bằng chứng để không neo theo giờ.
 
 | Issue | Skill chấm (Scope × Complexity → SWP) | Bạn chốt | Lý do |
 |---|---|---|---|
-| #70 T054 [INC-3] Tính hạn thanh toán: cuối kỳ + N ngày, tính cả ngày  | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #28 T012 fn_check_eligibility (DD-01) + 8 test case căn cứ/hạn/trạng  | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #41 T025 fn_aitai_create_confirm (DD-02): 1 transaction, khóa lô, ide | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #73 T057 [INC-6] fn_incentive_amount + 12 test vector (INC-EDGE-01〜03 | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #75 T059 [INC-8] Import CSV công nợ/thanh toán, all-or-nothing, lỗi t | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #17 T001 Terraform: VPC, ECS Fargate 2 AZ, RDS PostgreSQL Multi-AZ, S | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #43 T027 SCR-040: F9/Esc/F2, vùng B kiểm tra trước, focus theo lỗi | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #81 T065 [INC-14] Khách xác nhận Q-06/07/08/29/30 + ký test vector | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #40 T024 Bảng trade_entries + chuyển dữ liệu giao dịch cũ sang bút to | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
-| #83 T067 fn_rate_decide: maker≠checker + tối đa 4 lần/năm tài chính ( | ⏳ × ⏳ → **⏳** | **⏳** | ⏳ |
+| #81 T065 [INC-14] Khách xác nhận Q-06/07/08/29/30 + ký test vector | 2 × 1 → **1** | **3** | Skill chấm 1 SWP (coi là chủ yếu chờ khách). Sửa lên 3: phía mình vẫn phải soạn bộ câu hỏi kèm ví dụ số, giải thích quy tắc làm tròn/110/100/赤黒, ghi biên bản và sửa test vector rồi xin ký. |
+| #95 T079 job_runs + SCR-170 trạng thái batch | 3 × 1 → **4** | **4** | Giữ 4: bảng job_runs + 1 màn hình chỉ đọc trạng thái batch; logic đơn giản (C1), phạm vi DB + UI (S3). |
+| #40 T024 Bảng trade_entries + chuyển dữ liệu giao dịch cũ sang bút to | 5 × 3 → **10** | **10** | Giữ 10 (max của backlog): đổi mô hình giao dịch sang bút toán (ADR-004) và chuyển toàn bộ dữ liệu cũ; phải đối chiếu tổng tiền trước/sau (C3). Sprint 1 thực tế 30h/20h xác nhận đây là việc khó. |
+| #19 T003 Thay client Supabase bằng `pg` + công cụ migration schema từ | 5 × 3 → **10** | **10** | Giữ 10: thay client Supabase bằng pg ở toàn app + dựng migration 29 bảng từ DDL; nhiều file, rủi ro hồi quy (S5×C3). |
+| #104 T088 Gửi Q-26〜Q-33 cho khách, cập nhật PREMISE/ADR theo trả lời | 2 × 1 → **3** | **3** | Giữ 3: 8 câu hỏi Q-26〜33 + cập nhật PREMISE/ADR theo trả lời; việc tài liệu, không có code (S2×C1). |
 
-> ⏳ Bảng trên được điền tự động từ `data/swp.csv` sau khi chạy skill. Issue nào giữ nguyên điểm skill thì cột Lý do ghi vì sao giữ (ví dụ: “Scope 1 file hàm + test; Complexity thấp; khớp DD-07 b3”).
+
 
 ## 2. Cách quy ra giờ
 
@@ -36,29 +36,29 @@ Mẫu chọn để phủ đủ các loại: việc nhỏ thuần logic (T054), h
   - 1 ngày = 6 giờ tập trung.
   - Issue > 32 giờ thì tách sub-issue.
   - Issue loại Question chỉ tính giờ BrSE soạn câu hỏi và xử lý trả lời, không tính thời gian chờ khách.
-- **Kiểm chéo giờ ↔ SWP:** ⏳ Tính sau khi có SWP: trung vị giờ/SWP, danh sách issue lệch quá ±50% để xem lại.
+- **Kiểm chéo giờ ↔ SWP:** Trung vị **2.7 giờ/SWP**. 11 issue lệch quá ±50% so với trung vị: #33 T017, #37 T021, #49 T033, #54 T038, #78 T062, #88 T072, #92 T076, #96 T080, #100 T084, #106 T090, #109 T093 — chưa xem lại từng issue; đưa vào danh sách kiểm lại giờ ước lượng ở sprint planning của sprint chứa issue đó (lệch thường do giờ gồm cả phần chờ/điều phối mà SWP không tính, hoặc body issue mỏng).
 
 ## 3. Tổng theo epic
 
 | Epic | Số issue | Sub-issue | Tổng SWP | Tổng giờ | Ghi chú |
 |---|---|---|---|---|---|
-| #1 EP01 Nền tảng & hạ tầng production | 7 | 3 | ⏳ | 132 |  |
-| #2 EP02 Xác thực & phân quyền | 5 | 0 | ⏳ | 68 |  |
-| #3 EP03 Người tham gia & tư cách 許可/承認 | 7 | 0 | ⏳ | 69 | `constraint:qualification` |
-| #4 EP04 Lô hàng (ロット) | 6 | 0 | ⏳ | 68 |  |
-| #5 EP05 相対取引 (luồng chính) | 8 | 2 | ⏳ | 106 | `constraint:aitai-seri` |
-| #6 EP06 せり結果 (chỉ ghi kết quả) | 3 | 0 | ⏳ | 32 | `constraint:aitai-seri` |
-| #7 EP07 Giao hàng & offline | 8 | 2 | ⏳ | 126 |  |
-| #8 EP08 Đối chiếu & khóa ngày | 5 | 0 | ⏳ | 64 |  |
-| #9 EP09 Sửa sau xác nhận 赤黒 | 5 | 0 | ⏳ | 86 | `constraint:red-black` |
-| #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng | 15 | 2 | ⏳ | 140 | `constraint:incentive` |
-| #11 EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm) | 5 | 0 | ⏳ | 48 | `constraint:rate-governance` |
-| #12 EP12 Báo cáo & 会計連携 IF-ACC-01 | 6 | 0 | ⏳ | 100 |  |
-| #13 EP13 Thông báo · batch · vận hành | 3 | 0 | ⏳ | 38 |  |
-| #14 EP14 Audit · master · lưu trữ | 4 | 0 | ⏳ | 42 |  |
-| #15 EP15 Migration dữ liệu | 4 | 3 | ⏳ | 90 |  |
-| #16 EP16 Quản lý & xác nhận với khách | 4 | 0 | ⏳ | 31 |  |
-| **Tổng** | **95** | **12** | **⏳** | **1240** | |
+| #1 EP01 Nền tảng & hạ tầng production | 7 | 3 | 47 | 132 |  |
+| #2 EP02 Xác thực & phân quyền | 5 | 0 | 26 | 68 |  |
+| #3 EP03 Người tham gia & tư cách 許可/承認 | 7 | 0 | 25 | 69 | `constraint:qualification` |
+| #4 EP04 Lô hàng (ロット) | 6 | 0 | 28 | 68 |  |
+| #5 EP05 相対取引 (luồng chính) | 8 | 2 | 39 | 106 | `constraint:aitai-seri` |
+| #6 EP06 せり結果 (chỉ ghi kết quả) | 3 | 0 | 13 | 32 | `constraint:aitai-seri` |
+| #7 EP07 Giao hàng & offline | 8 | 2 | 38 | 126 |  |
+| #8 EP08 Đối chiếu & khóa ngày | 5 | 0 | 24 | 64 |  |
+| #9 EP09 Sửa sau xác nhận 赤黒 | 5 | 0 | 27 | 86 | `constraint:red-black` |
+| #10 EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng | 15 | 2 | 59 | 140 | `constraint:incentive` |
+| #11 EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm) | 5 | 0 | 20 | 48 | `constraint:rate-governance` |
+| #12 EP12 Báo cáo & 会計連携 IF-ACC-01 | 6 | 0 | 29 | 100 |  |
+| #13 EP13 Thông báo · batch · vận hành | 3 | 0 | 16 | 38 |  |
+| #14 EP14 Audit · master · lưu trữ | 4 | 0 | 24 | 42 |  |
+| #15 EP15 Migration dữ liệu | 4 | 3 | 30 | 90 |  |
+| #16 EP16 Quản lý & xác nhận với khách | 4 | 0 | 13 | 31 |  |
+| **Tổng** | **95** | **12** | **458** | **1240** | |
 
 ## 4. So với estimate LAB-1
 

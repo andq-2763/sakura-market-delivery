@@ -476,7 +476,7 @@
    "status": "In Progress",
    "epic": "EP01 Nền tảng & hạ tầng production",
    "close": false,
-   "swp": null
+   "swp": 13.0
   },
   {
    "key": "T002",
@@ -494,7 +494,7 @@
    "status": "Todo",
    "epic": "EP01 Nền tảng & hạ tầng production",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T003",
@@ -513,7 +513,7 @@
    "status": "Done",
    "epic": "EP01 Nền tảng & hạ tầng production",
    "close": true,
-   "swp": null
+   "swp": 10.0
   },
   {
    "key": "T004",
@@ -531,7 +531,7 @@
    "status": "Todo",
    "epic": "EP01 Nền tảng & hạ tầng production",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T005",
@@ -549,7 +549,7 @@
    "status": "Todo",
    "epic": "EP01 Nền tảng & hạ tầng production",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T006",
@@ -567,7 +567,7 @@
    "status": "Todo",
    "epic": "EP02 Xác thực & phân quyền",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T007",
@@ -585,7 +585,7 @@
    "status": "Todo",
    "epic": "EP02 Xác thực & phân quyền",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T008",
@@ -603,7 +603,7 @@
    "status": "Todo",
    "epic": "EP02 Xác thực & phân quyền",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T009",
@@ -622,7 +622,7 @@
    "status": "Done",
    "epic": "EP02 Xác thực & phân quyền",
    "close": true,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T010",
@@ -640,7 +640,7 @@
    "status": "Done",
    "epic": "EP02 Xác thực & phân quyền",
    "close": true,
-   "swp": null
+   "swp": 8.0
   },
   {
    "key": "T011",
@@ -660,7 +660,7 @@
    "status": "Done",
    "epic": "EP03 Người tham gia & tư cách 許可/承認",
    "close": true,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T012",
@@ -679,7 +679,7 @@
    "status": "Done",
    "epic": "EP03 Người tham gia & tư cách 許可/承認",
    "close": true,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T013",
@@ -698,7 +698,7 @@
    "status": "Todo",
    "epic": "EP03 Người tham gia & tư cách 許可/承認",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T014",
@@ -717,7 +717,7 @@
    "status": "Todo",
    "epic": "EP03 Người tham gia & tư cách 許可/承認",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T015",
@@ -736,7 +736,7 @@
    "status": "Todo",
    "epic": "EP03 Người tham gia & tư cách 許可/承認",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T016",
@@ -755,7 +755,7 @@
    "status": "Todo",
    "epic": "EP03 Người tham gia & tư cách 許可/承認",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T017",
@@ -775,7 +775,7 @@
    "status": "Todo",
    "epic": "EP03 Người tham gia & tư cách 許可/承認",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T018",
@@ -794,7 +794,7 @@
    "status": "Done",
    "epic": "EP04 Lô hàng (ロット)",
    "close": true,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T019",
@@ -813,7 +813,7 @@
    "status": "Done",
    "epic": "EP04 Lô hàng (ロット)",
    "close": true,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T020",
@@ -832,7 +832,7 @@
    "status": "Todo",
    "epic": "EP04 Lô hàng (ロット)",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T021",
@@ -850,7 +850,7 @@
    "status": "Done",
    "epic": "EP04 Lô hàng (ロット)",
    "close": true,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T022",
@@ -868,7 +868,7 @@
    "status": "Todo",
    "epic": "EP04 Lô hàng (ロット)",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T023",
@@ -886,7 +886,7 @@
    "status": "Todo",
    "epic": "EP04 Lô hàng (ロット)",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T024",
@@ -907,7 +907,7 @@
    "status": "Done",
    "epic": "EP05 相対取引 (luồng chính)",
    "close": true,
-   "swp": null
+   "swp": 10.0
   },
   {
    "key": "T025",
@@ -926,7 +926,7 @@
    "status": "Done",
    "epic": "EP05 相対取引 (luồng chính)",
    "close": true,
-   "swp": null
+   "swp": 7.0
   },
   {
    "key": "T026",
@@ -945,7 +945,7 @@
    "status": "Done",
    "epic": "EP05 相対取引 (luồng chính)",
    "close": true,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T027",
@@ -964,7 +964,7 @@
    "status": "In Progress",
    "epic": "EP05 相対取引 (luồng chính)",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T028",
@@ -983,7 +983,7 @@
    "status": "Todo",
    "epic": "EP05 相対取引 (luồng chính)",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T029",
@@ -1002,7 +1002,7 @@
    "status": "Todo",
    "epic": "EP05 相対取引 (luồng chính)",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T030",
@@ -1021,7 +1021,7 @@
    "status": "In Progress",
    "epic": "EP05 相対取引 (luồng chính)",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T031",
@@ -1040,7 +1040,7 @@
    "status": "Todo",
    "epic": "EP06 せり結果 (chỉ ghi kết quả)",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T032",
@@ -1059,7 +1059,7 @@
    "status": "Todo",
    "epic": "EP06 せり結果 (chỉ ghi kết quả)",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T033",
@@ -1078,7 +1078,7 @@
    "status": "Todo",
    "epic": "EP06 せり結果 (chỉ ghi kết quả)",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T034",
@@ -1096,7 +1096,7 @@
    "status": "Todo",
    "epic": "EP07 Giao hàng & offline",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T035",
@@ -1114,7 +1114,7 @@
    "status": "Todo",
    "epic": "EP07 Giao hàng & offline",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T036",
@@ -1132,7 +1132,7 @@
    "status": "Todo",
    "epic": "EP07 Giao hàng & offline",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T037",
@@ -1150,7 +1150,7 @@
    "status": "Todo",
    "epic": "EP07 Giao hàng & offline",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T038",
@@ -1168,7 +1168,7 @@
    "status": "Todo",
    "epic": "EP07 Giao hàng & offline",
    "close": false,
-   "swp": null
+   "swp": 7.0
   },
   {
    "key": "T039",
@@ -1186,7 +1186,7 @@
    "status": "Todo",
    "epic": "EP07 Giao hàng & offline",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T040",
@@ -1204,7 +1204,7 @@
    "status": "Todo",
    "epic": "EP07 Giao hàng & offline",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T041",
@@ -1222,7 +1222,7 @@
    "status": "Todo",
    "epic": "EP07 Giao hàng & offline",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T042",
@@ -1241,7 +1241,7 @@
    "status": "Todo",
    "epic": "EP08 Đối chiếu & khóa ngày",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T043",
@@ -1259,7 +1259,7 @@
    "status": "Todo",
    "epic": "EP08 Đối chiếu & khóa ngày",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T044",
@@ -1277,7 +1277,7 @@
    "status": "Todo",
    "epic": "EP08 Đối chiếu & khóa ngày",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T045",
@@ -1295,7 +1295,7 @@
    "status": "Todo",
    "epic": "EP08 Đối chiếu & khóa ngày",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T046",
@@ -1313,7 +1313,7 @@
    "status": "Todo",
    "epic": "EP08 Đối chiếu & khóa ngày",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T047",
@@ -1332,7 +1332,7 @@
    "status": "Todo",
    "epic": "EP09 Sửa sau xác nhận 赤黒",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T048",
@@ -1351,7 +1351,7 @@
    "status": "Todo",
    "epic": "EP09 Sửa sau xác nhận 赤黒",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T049",
@@ -1370,7 +1370,7 @@
    "status": "Todo",
    "epic": "EP09 Sửa sau xác nhận 赤黒",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T050",
@@ -1389,7 +1389,7 @@
    "status": "Todo",
    "epic": "EP09 Sửa sau xác nhận 赤黒",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T051",
@@ -1410,7 +1410,7 @@
    "status": "Todo",
    "epic": "EP09 Sửa sau xác nhận 赤黒",
    "close": false,
-   "swp": null
+   "swp": 8.0
   },
   {
    "key": "T052",
@@ -1429,7 +1429,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T053",
@@ -1448,7 +1448,7 @@
    "status": "Done",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": true,
-   "swp": null
+   "swp": 2.0
   },
   {
    "key": "T054",
@@ -1467,7 +1467,7 @@
    "status": "Done",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": true,
-   "swp": null
+   "swp": 2.0
   },
   {
    "key": "T055",
@@ -1486,7 +1486,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T056",
@@ -1505,7 +1505,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T057",
@@ -1524,7 +1524,7 @@
    "status": "Done",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": true,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T058",
@@ -1543,7 +1543,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T059",
@@ -1562,7 +1562,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T060",
@@ -1581,7 +1581,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T061",
@@ -1600,7 +1600,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T062",
@@ -1619,7 +1619,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T063",
@@ -1638,7 +1638,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T064",
@@ -1657,7 +1657,7 @@
    "status": "Todo",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T065",
@@ -1677,7 +1677,7 @@
    "status": "Blocked",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T066",
@@ -1697,7 +1697,7 @@
    "status": "Todo",
    "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T067",
@@ -1716,7 +1716,7 @@
    "status": "Todo",
    "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T068",
@@ -1735,7 +1735,7 @@
    "status": "Todo",
    "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T069",
@@ -1754,7 +1754,7 @@
    "status": "Todo",
    "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
    "close": false,
-   "swp": null
+   "swp": 2.0
   },
   {
    "key": "T070",
@@ -1773,7 +1773,7 @@
    "status": "Todo",
    "epic": "EP11 料率版 (bản tỉ lệ — tối đa 4 lần/năm)",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T071",
@@ -1791,7 +1791,7 @@
    "status": "Todo",
    "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T072",
@@ -1809,7 +1809,7 @@
    "status": "Todo",
    "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T073",
@@ -1827,7 +1827,7 @@
    "status": "Todo",
    "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T074",
@@ -1845,7 +1845,7 @@
    "status": "Todo",
    "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T075",
@@ -1863,7 +1863,7 @@
    "status": "Todo",
    "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
    "close": false,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T076",
@@ -1881,7 +1881,7 @@
    "status": "Todo",
    "epic": "EP12 Báo cáo & 会計連携 IF-ACC-01",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T077",
@@ -1899,7 +1899,7 @@
    "status": "Todo",
    "epic": "EP13 Thông báo · batch · vận hành",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T078",
@@ -1917,7 +1917,7 @@
    "status": "Todo",
    "epic": "EP13 Thông báo · batch · vận hành",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T079",
@@ -1935,7 +1935,7 @@
    "status": "Todo",
    "epic": "EP13 Thông báo · batch · vận hành",
    "close": false,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T080",
@@ -1954,7 +1954,7 @@
    "status": "Todo",
    "epic": "EP14 Audit · master · lưu trữ",
    "close": false,
-   "swp": null
+   "swp": 8.0
   },
   {
    "key": "T081",
@@ -1972,7 +1972,7 @@
    "status": "Todo",
    "epic": "EP14 Audit · master · lưu trữ",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T082",
@@ -1990,7 +1990,7 @@
    "status": "Todo",
    "epic": "EP14 Audit · master · lưu trữ",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T083",
@@ -2008,7 +2008,7 @@
    "status": "Done",
    "epic": "EP14 Audit · master · lưu trữ",
    "close": true,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T084",
@@ -2026,7 +2026,7 @@
    "status": "Todo",
    "epic": "EP15 Migration dữ liệu",
    "close": false,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T085",
@@ -2044,7 +2044,7 @@
    "status": "Todo",
    "epic": "EP15 Migration dữ liệu",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T086",
@@ -2062,7 +2062,7 @@
    "status": "Todo",
    "epic": "EP15 Migration dữ liệu",
    "close": false,
-   "swp": null
+   "swp": 15.0
   },
   {
    "key": "T087",
@@ -2080,7 +2080,7 @@
    "status": "Todo",
    "epic": "EP15 Migration dữ liệu",
    "close": false,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T088",
@@ -2098,7 +2098,7 @@
    "status": "Done",
    "epic": "EP16 Quản lý & xác nhận với khách",
    "close": true,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T089",
@@ -2116,7 +2116,7 @@
    "status": "Done",
    "epic": "EP16 Quản lý & xác nhận với khách",
    "close": true,
-   "swp": null
+   "swp": 1.0
   },
   {
    "key": "T090",
@@ -2134,7 +2134,7 @@
    "status": "Done",
    "epic": "EP16 Quản lý & xác nhận với khách",
    "close": true,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T091",
@@ -2153,7 +2153,7 @@
    "status": "Done",
    "epic": "EP05 相対取引 (luồng chính)",
    "close": true,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T092",
@@ -2172,7 +2172,7 @@
    "status": "Done",
    "epic": "EP10 完納奨励金 (tiền thưởng thanh toán đủ hạn) — tách riêng",
    "close": true,
-   "swp": null
+   "swp": 3.0
   },
   {
    "key": "T093",
@@ -2190,7 +2190,7 @@
    "status": "Done",
    "epic": "EP01 Nền tảng & hạ tầng production",
    "close": true,
-   "swp": null
+   "swp": 4.0
   },
   {
    "key": "T094",
@@ -2208,7 +2208,7 @@
    "status": "Done",
    "epic": "EP01 Nền tảng & hạ tầng production",
    "close": true,
-   "swp": null
+   "swp": 5.0
   },
   {
    "key": "T095",
@@ -2226,7 +2226,7 @@
    "status": "Done",
    "epic": "EP16 Quản lý & xác nhận với khách",
    "close": true,
-   "swp": null
+   "swp": 6.0
   },
   {
    "key": "T001-1",

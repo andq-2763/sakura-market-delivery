@@ -7,7 +7,7 @@ NUM=TB['NUM']; HAS=TB['HAS_SWP']
 SW={}; p=os.path.join(ROOT,'data','swp.csv')
 if os.path.exists(p): SW={r['id']:r for r in csv.DictReader(open(p,encoding='utf-8-sig'))}
 tm={t[0]:t for t in T}
-SAMPLE=["T054","T012","T025","T057","T059","T001","T027","T065","T024","T067"]
+SAMPLE=["T065","T079","T024","T003","T088"]
 def cell(i,k): return SW[i][k] if i in SW and SW[i].get(k) else '⏳'
 samp="\n".join(f"| #{NUM[i]} {i} {tm[i][2][:60]} | {cell(i,'scope')} × {cell(i,'complexity')} → **{cell(i,'swp_skill')}** | **{cell(i,'swp_final')}** | {cell(i,'reason')} |" for i in SAMPLE)
 html=[f for f in os.listdir(os.path.join(ROOT,'swp-report')) if f.endswith('.html')] if os.path.isdir(os.path.join(ROOT,'swp-report')) else []
@@ -17,7 +17,7 @@ ratio=""
 if HAS:
     rs=sorted(tm[i][5]/float(SW[i]['swp_final']) for i in SW if i in tm and SW[i].get('swp_final') and float(SW[i]['swp_final'])>0)
     med=rs[len(rs)//2]; out=[i for i in SW if i in tm and SW[i].get('swp_final') and float(SW[i]['swp_final'])>0 and not (0.5*med<=tm[i][5]/float(SW[i]['swp_final'])<=1.5*med)]
-    ratio=f"Trung vị **{med:.1f} giờ/SWP**. {len(out)} issue lệch quá ±50% so với trung vị: {', '.join('#'+str(NUM[i])+' '+i for i in out) or 'không có'} — đã xem lại từng issue (ghi ở cột Lý do của data/swp.csv)."
+    ratio=f"Trung vị **{med:.1f} giờ/SWP**. {len(out)} issue lệch quá ±50% so với trung vị: {', '.join('#'+str(NUM[i])+' '+i for i in out) or 'không có'} — chưa xem lại từng issue; đưa vào danh sách kiểm lại giờ ước lượng ở sprint planning của sprint chứa issue đó (lệch thường do giờ gồm cả phần chờ/điều phối mà SWP không tính, hoặc body issue mỏng)."
 else:
     ratio="⏳ Tính sau khi có SWP: trung vị giờ/SWP, danh sách issue lệch quá ±50% để xem lại."
 est=f"""# Estimate — SWP (skill chấm) + giờ ước lượng
@@ -33,7 +33,12 @@ Báo cáo HTML của skill chấm SWP: {hpath}
 
 ## 1. Issue mẫu đã kiểm skill
 
-Mẫu chọn để phủ đủ các loại: việc nhỏ thuần logic (T054), hàm có nhiều ca (T012, T057), giao dịch đồng thời (T025), import phụ thuộc khách (T059), hạ tầng (T001), màn hình (T027), câu hỏi khách (T065), refactor mô hình dữ liệu (T024), quy tắc quản trị (T067).
+Skill `tkm:sun-estimate` (Takumi Extras v1.1.0) tự chọn 5 issue mẫu theo quy tắc cố định: thấp nhất (#81 T065), dưới trung vị (#95 T079), cao nhất (#40 T024), bất thường (#19 T003), độ tin cậy thấp nhất (#104 T088). Mỗi issue duyệt 2 vòng: chọn mức khó → chọn điểm SWP cụ thể.
+
+- Kết quả: **sửa 1/5** (T065: 1 → 3 SWP), giữ 4/5.
+- Hiệu chỉnh lan truyền: skill tạo quy tắc `cal-001` (Scope +1 bậc cho nhóm documentation/routine/single-component) nhưng **không có issue nào khác cùng nhóm**, nên chỉ T065 đổi. Tổng backlog: skill 456 → chốt **458 SWP**.
+- 97 issue còn lại (102 issue skill chấm trực tiếp, gồm sub-issue) giữ điểm skill; lý do từng issue (rationale của skill) ghi ở cột `reason` trong `data/swp.csv`.
+- Điểm yếu của lần chấm: body issue chỉ có spec ref + DoD nên phần lớn ở mức INFERRED/medium; dòng "Ước lượng: N h" bị skill loại khỏi bằng chứng để không neo theo giờ.
 
 | Issue | Skill chấm (Scope × Complexity → SWP) | Bạn chốt | Lý do |
 |---|---|---|---|
@@ -102,7 +107,7 @@ pr=f"""# Progress report — Sprint 1 (giả lập)
 
 ![Burndown Sprint 1 theo giờ](reports/sprint-1-burndown-hours.png)
 
-Burndown vẽ theo **giờ ước lượng còn lại**, vì SWP chỉ có sau khi chạy skill (bản theo SWP sẽ thêm khi có `data/swp.csv`).
+Burndown vẽ theo **giờ ước lượng còn lại** (giờ được ước trước khi chấm SWP; SWP của sprint ở bảng §1).
 
 Thực tế lệch kế hoạch ở đâu:
 - **3/2〜3/5 chậm 60〜76 giờ so với đường kế hoạch.** Tài khoản AWS do IT phía khách cấp trễ 3 ngày (giả định A-04 của LAB-1), nên T001 không xong. Đồng thời T024 (chuyển sang mô hình bút toán, ADR-004) mất 30h so với 20h ước lượng.

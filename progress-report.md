@@ -11,20 +11,20 @@
 
 | Trạng thái | Số issue | Tổng SWP | Giờ ước lượng | Ghi chú |
 |---|---|---|---|---|
-| Done | 23 | ⏳ | 261 | Gồm toàn bộ lõi tư cách (DD-01), lô, xác nhận 相対 (DD-02), công thức 奨励金 (12 test vector pass) |
-| In Progress | 3 | ⏳ | 62 | T001 hạ tầng (~75%), T027 màn hình 相対, T030 danh sách giao dịch |
-| Todo | 1 | ⏳ | 10 | T028 test đồng thời — chưa bắt đầu vì T025 xong ngày 3/11 |
-| Blocked | 1 | ⏳ | 4 | T065 chờ khách trả lời Q-06/07/08/29/30 |
-| **Tổng** | **28** | **⏳** | **337** | Capacity 380h (BE×3, FE×2, QA×1: 60h/người; BrSE 20h) |
+| Done | 23 | 100.0 | 261 | Gồm toàn bộ lõi tư cách (DD-01), lô, xác nhận 相対 (DD-02), công thức 奨励金 (12 test vector pass) |
+| In Progress | 3 | 22.0 | 62 | T001 hạ tầng (~75%), T027 màn hình 相対, T030 danh sách giao dịch |
+| Todo | 1 | 4.0 | 10 | T028 test đồng thời — chưa bắt đầu vì T025 xong ngày 3/11 |
+| Blocked | 1 | 3.0 | 4 | T065 chờ khách trả lời Q-06/07/08/29/30 |
+| **Tổng** | **28** | **129.0** | **337** | Capacity 380h (BE×3, FE×2, QA×1: 60h/người; BrSE 20h) |
 
-- Mức hoàn thành: **23/28 issue**; 261/337 giờ ước lượng (77%).
+- Mức hoàn thành: **23/28 issue**; 261/337 giờ ước lượng (77%); SWP 100/129 (78%).
 - Các issue đã xong: ước lượng 261h, thực tế 283h (**+8%**). Tổng giờ thực tế của sprint: 335h.
 
 ## 2. Burndown
 
 ![Burndown Sprint 1 theo giờ](reports/sprint-1-burndown-hours.png)
 
-Burndown vẽ theo **giờ ước lượng còn lại**, vì SWP chỉ có sau khi chạy skill (bản theo SWP sẽ thêm khi có `data/swp.csv`).
+Burndown vẽ theo **giờ ước lượng còn lại** (giờ được ước trước khi chấm SWP; SWP của sprint ở bảng §1).
 
 Thực tế lệch kế hoạch ở đâu:
 - **3/2〜3/5 chậm 60〜76 giờ so với đường kế hoạch.** Tài khoản AWS do IT phía khách cấp trễ 3 ngày (giả định A-04 của LAB-1), nên T001 không xong. Đồng thời T024 (chuyển sang mô hình bút toán, ADR-004) mất 30h so với 20h ước lượng.
