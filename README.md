@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Dự án | 株式会社 桜水産市場 業務支援システム (dự án mô phỏng của khóa học) |
-| Học viên | Dang Quynh An · Mã học viên: `<MÃ HỌC VIÊN>` |
+| Học viên | Dang Quynh An · Mã học viên: `B122763` |
 | Đề | **Product A** — sàn đấu giá thủy sản |
 
 ## 1. Tổng quan
