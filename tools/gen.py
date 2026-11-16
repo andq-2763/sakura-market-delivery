@@ -49,7 +49,7 @@ for pid,subs in SUBS.items():
         iss.append({"key":sid,"kind":"sub","title":f"[{sid}] {title}","body":f"Sub-issue của #{NUM[pid]} ({pid}). Ước lượng {h}h. SWP tính ở issue cha.",
                     "labels":["type:sub-task"],"parent":pid,"iteration":ITER[t[7]][0],"member":t[6],"hours":h,"actual":None,"status":s_,
                     "epic":f"{t[1]} {EPICS[t[1]][0]}","close":s_=="Done"})
-json.dump({"repo":REPO,"project_title":"桜水産市場 業務支援システム — Delivery (LAB-5)",
+json.dump({"assignee_field":"Assignee (giả định)","repo":REPO,"project_title":"桜水産市場 業務支援システム — Delivery (LAB-5)",
   "iterations":[{"title":v[0],"startDate":v[1],"duration":14} for k,v in ITER.items() if v[0]],
   "members":sorted({t[6] for t in T}),"epics":[f"{k} {v[0]}" for k,v in EPICS.items()],"expected_numbers":NUM,"issues":iss},
   open(os.path.join(ROOT,'github','issues.json'),'w',encoding='utf-8'),ensure_ascii=False,indent=1)
