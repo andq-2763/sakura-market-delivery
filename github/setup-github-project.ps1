@@ -43,9 +43,10 @@ foreach ($l in $all) { $k = ($l -split ':')[0]; $c = if ($colors[$k]) { $colors[
   Invoke-Gh -Write @('label','create',$l,'--color',$c,'--force','-R',$Repo) | Out-Null }
 
 Write-Host "== 2. Issues (epic -> issue -> sub-issue)" -ForegroundColor Cyan
-$existing = @(Invoke-GhJson @('issue','list','-R',$Repo,'--state','all','--limit','1000','--json','number,title,url,state'))
+# PowerShell 5.1: ConvertFrom-Json tra ve ca mang nhu 1 object -> phai trai phang bang ForEach-Object
+$existing = @((Invoke-GhJson @('issue','list','-R',$Repo,'--state','all','--limit','1000','--json','number,title,url,state')) | ForEach-Object { $_ })
 $map = @{}
-foreach ($e in $existing) { if ($e.title -match '^\[((EP\d{2})|(T\d{3}(-\d)?))\]') { $map[$Matches[1]] = $e } }
+foreach ($e in $existing) { if ([string]$e.title -match '^\[((EP\d{2})|(T\d{3}(-\d)?))\]') { $map[$Matches[1]] = $e } }
 $tmp = [System.IO.Path]::GetTempFileName(); $fake = 9000
 foreach ($i in $data.issues) {
   if ($map.ContainsKey($i.key)) { continue }
@@ -68,8 +69,8 @@ foreach ($i in $data.issues | Where-Object { $_.parent }) {
   $parent = $map[$i.parent]; $child = $map[$i.key]
   if ($DryRun) { Write-Host "  [dry-run] sub-issue #$($child.number) -> #$($parent.number)" -ForegroundColor DarkGray; continue }
   $childId = (Invoke-GhJson @('api',"repos/$Repo/issues/$($child.number)")).id
-  try { Invoke-Gh @('api','-X','POST',"repos/$Repo/issues/$($parent.number)/sub_issues",'-F',"sub_issue_id=$childId") | Out-Null }
-  catch { if ("$_" -notmatch 'already|exists|422') { throw } }
+  try { Invoke-Gh @('api','-X','POST',"repos/$Repo/issues/$($parent.number)/sub_issues",'-F',"sub_issue_id=$childId") | Out-Null; Write-Host "   #$($child.number) -> #$($parent.number)" }
+  catch { if ("$_" -notmatch 'already|exists|422') { throw }; Write-Host "   #$($child.number) -> #$($parent.number) (da co)" }
 }
 
 Write-Host "== 4. Project + fields" -ForegroundColor Cyan
@@ -79,7 +80,8 @@ if (-not $proj) {
   $proj = Invoke-GhJson @('project','create','--owner',$Owner,'--title',$data.project_title,'--format','json')
 }
 $num = $proj.number; $projId = $proj.id
-try { Invoke-Gh -Write @('project','link',"$num",'--owner',$Owner,'--repo',$Repo) | Out-Null } catch { Write-Warning "link: $_" }
+$login = if ($Owner -eq '@me') { (Invoke-Gh @('api','user','--jq','.login')).Trim() } else { $Owner }
+try { Invoke-Gh -Write @('project','link',"$num",'--owner',$login,'--repo',$Repo) | Out-Null } catch { Write-Warning "link: $_" }
 $fields = (Invoke-GhJson @('project','field-list',"$num",'--owner',$Owner,'--format','json','--limit','50')).fields
 $want = @(
   @{ name='SWP'; type='NUMBER' }, @{ name='Estimate (h)'; type='NUMBER' }, @{ name='Actual (h)'; type='NUMBER' },
@@ -91,15 +93,23 @@ foreach ($w in $want) {
   if ($w.options) { if ($w.options | Where-Object { $_ -like '*,*' }) { throw "Option co dau phay: $($w.name)" }; $a += @('--single-select-options',($w.options -join ',')) }
   Invoke-Gh -Write $a | Out-Null; Write-Host "   field: $($w.name)" }
 
-# Iteration: gh CLI chua ho tro -> GraphQL
-$q = 'query($id:ID!){ node(id:$id){ ... on ProjectV2 { field(name:"Iteration"){ ... on ProjectV2IterationField { id configuration { iterations { id title } completedIterations { id title } } } } } } }'
-$it = (Invoke-GhJson @('api','graphql','-f',"query=$q",'-F',"id=$projId")).data.node.field
+# Iteration: gh CLI chua ho tro -> GraphQL. Gui body bang file (--input) vi PowerShell 5.1 lam mat dau " trong tham so.
+function Invoke-Gql([string]$query, [hashtable]$vars) {
+  $f = [System.IO.Path]::GetTempFileName()
+  [System.IO.File]::WriteAllText($f, (@{ query = $query; variables = $vars } | ConvertTo-Json -Depth 10 -Compress), $utf8)
+  try { return (Invoke-GhJson @('api','graphql','--input',$f)) } finally { Remove-Item $f -ErrorAction SilentlyContinue }
+}
+# Khong dung field(name:) vi GitHub bao loi khi field chua ton tai -> lay danh sach field roi loc
+$q = 'query($id:ID!){ node(id:$id){ ... on ProjectV2 { fields(first:50){ nodes { ... on ProjectV2IterationField { id name configuration { iterations { id title } completedIterations { id title } } } } } } } }'
+function Get-IterField { @((Invoke-Gql $q @{ id = $projId }).data.node.fields.nodes | ForEach-Object { $_ }) | Where-Object { $_.name -eq 'Iteration' } | Select-Object -First 1 }
+$it = Get-IterField
 if (-not $it) {
-  $iters = ($data.iterations | ForEach-Object { '{title:"' + $_.title + '",startDate:"' + $_.startDate + '",duration:' + $_.duration + '}' }) -join ','
-  $m = 'mutation($p:ID!){ createProjectV2Field(input:{projectId:$p,dataType:ITERATION,name:"Iteration",iterationConfiguration:{startDate:"' + $data.iterations[0].startDate + '",duration:14,iterations:[' + $iters + ']}}){ projectV2Field{ ... on ProjectV2IterationField { id } } } }'
-  try { Invoke-Gh @('api','graphql','-f',"query=$m",'-F',"p=$projId") | Out-Null; Write-Host '   field: Iteration (Sprint 1-5)' }
+  $iters = @($data.iterations | ForEach-Object { @{ title = $_.title; startDate = $_.startDate; duration = [int]$_.duration } })
+  $m = 'mutation($input:CreateProjectV2FieldInput!){ createProjectV2Field(input:$input){ projectV2Field{ ... on ProjectV2IterationField { id } } } }'
+  $inp = @{ projectId = $projId; dataType = 'ITERATION'; name = 'Iteration'; iterationConfiguration = @{ startDate = $data.iterations[0].startDate; duration = 14; iterations = $iters } }
+  try { $r = Invoke-Gql $m @{ input = $inp }; if ($r.errors) { throw ($r.errors | ConvertTo-Json -Depth 5) }; Write-Host '   field: Iteration (Sprint 1-5)' }
   catch { Write-Warning "Khong tao duoc field Iteration qua API: $_`nTao tay tren web: + New field > Iteration, ten 'Iteration', bat dau 2027-03-01, 2 tuan, 5 iteration 'Sprint 1'..'Sprint 5'; roi chay lai script." }
-  $it = (Invoke-GhJson @('api','graphql','-f',"query=$q",'-F',"id=$projId")).data.node.field
+  $it = Get-IterField
 }
 $iterId = @{}; if ($it) { foreach ($x in @($it.configuration.iterations) + @($it.configuration.completedIterations)) { if ($x) { $iterId[$x.title] = $x.id } } }
 $fields = (Invoke-GhJson @('project','field-list',"$num",'--owner',$Owner,'--format','json','--limit','50')).fields
@@ -124,7 +134,10 @@ foreach ($i in $data.issues) {
   foreach ($x in $e) {
     if (-not $x[1] -or -not $x[3]) { Write-Warning "$($i.key): bo qua $($x -join ' ')"; continue }
     Invoke-Gh -Write (@('project','item-edit','--id',$item.id,'--project-id',$projId) + $x) | Out-Null }
-  if ($i.close -and $map[$i.key].state -ne 'CLOSED') { Invoke-Gh -Write @('issue','close',$u,'-R',$Repo,'-c','Sprint 1 done (simulated data / LAB-5)') | Out-Null }
+  if ($i.close -and $map[$i.key].state -ne 'CLOSED') {
+    try { Invoke-Gh -Write @('issue','close',$u,'-R',$Repo,'-c','Sprint 1 done (simulated data / LAB-5)') | Out-Null }
+    catch { if ("$_" -notmatch 'already closed') { throw } }
+  }
   Write-Host "   $($i.key) $($i.status)"
 }
 Write-Host "`nXong. Project: gh project view $num --owner $Owner --web" -ForegroundColor Green

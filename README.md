@@ -19,7 +19,7 @@
 | | |
 |---|---|
 | Repo | https://github.com/andq-2763/sakura-market-delivery |
-| GitHub Project | `<LINK PROJECT — dán sau khi chạy github/setup-github-project.ps1>` |
+| GitHub Project | https://github.com/users/andq-2763/projects/1 |
 | Báo cáo HTML của skill chấm SWP | [`swp-report/`](swp-report/) |
 | Bộ thiết kế LAB-4 (đầu vào) | https://github.com/andq-2763/sakura-market-prototype/tree/main/specs |
 
